@@ -1,0 +1,30 @@
+// vo ovoj fil ne se pishuva direkt style tuku se povrzuvvat pomali filovi 
+@import './variables';
+@import './layout';
+@import './header';
+@import './footer';
+@import './ui/button';
+/* body{
+    margin:0;
+    background-color: aquamarine;
+    height: auto;
+} */
+
+//exempel scss
+/* $background_color: red;
+.minklass{
+    background-color: $background_color;
+    div{
+        width: 400px;
+        p{
+            color: blue;
+            &:hover{
+                color: aqua;
+            }
+            &::after{
+                color: green;
+            }
+        }
+
+    }
+} */
