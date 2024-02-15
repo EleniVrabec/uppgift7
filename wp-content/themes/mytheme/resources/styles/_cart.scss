@@ -5,7 +5,7 @@
     width: calc(100% + 40px);
     margin-left: -20px;
     .cart-collaterals{
-        width: 40%;
+        width: 30%;
         margin: 20px;
        
         .cart_totals{
@@ -13,14 +13,84 @@
         }
     }
     .woocommerce-cart-form{
-        margin: 20px;
-        width: 60%;
-       
+        margin: 10px;
+        width: 70%;
+        font-size: 16px;
+       .shop_table {
+        border: none;
+        thead{
+            background-color: $yellow_bckg;
+            border: none;
+        }
+        tbody{
+            margin-top: 40px;
+            .cart_item{
+                
+                td{
+                    border: none;
+                    
+                }
+                .product-thumbnail{
+                    width: 106px;
+                    height: 106px;
+                    background-color:$yellow_bckg;
+                    border-radius: 10px;
+                }
+                .product-name a{
+                    text-decoration: none;
+                    color: $secondary_text_color;
+                    font-size: 16px;
+                    width: 100px;
+                }
+                .product-price{
+                    color: $secondary_text_color;
+                }
+                .product-quantity{
+                   
+                    .quantity{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        input[type="number"]{
+                            width: 32px;
+                            height: 32px;
+                            border: 1px solid $secondary_text_color;
+                            border-radius: 5px;
+                            /* Hide the arrows for number input */
+                             &::-webkit-inner-spin-button,
+                             &::-webkit-outer-spin-button {
+                              -webkit-appearance: none;
+                              margin: 0;
+                                 }
+
+                             & {
+                                      -moz-appearance: textfield; /* Firefox */
+                             } 
+                            
+                        }
+                    }
+                }
+                .product-remove{
+                    .remove{
+                        .fa{
+                            color:#FBEBB5;
+                            ;
+                        }
+                        &:hover{
+                            background-color: transparent;
+                            color: $logo_color;
+                        }
+                    }
+                }
+            }
+          
+        }
+       }
 
     }
     .cart-collaterals, .woocommerce-cart-form{
-        border-radius: 10px;
-        padding: 30px;
+        /* border-radius: 10px; */
+        /* padding: 30px; */
         background-color: #fff;
     }
 } 

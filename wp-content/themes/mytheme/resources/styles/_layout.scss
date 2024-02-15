@@ -1,3 +1,10 @@
 body{
+    width:auto;
+    margin: 0;
     font-family: $poppins-font;
+    background-color: $background_color;
+}
+.content{
+    width: $content-width;
+    margin: auto;
 }
