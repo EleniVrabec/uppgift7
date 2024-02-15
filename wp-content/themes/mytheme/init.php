@@ -8,17 +8,18 @@ function enqueue_font_awesome() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_font_awesome');
 
-// Enqueue Roboto font
-function enqueue_roboto_font() {
-    wp_enqueue_style('roboto-font', 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap', array(), null);
+// Enqueue Poppins font
+function enqueue_poppins_font() {
+    wp_enqueue_style('poppins-font', 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap', array(), null);
 }
-add_action('wp_enqueue_scripts', 'enqueue_roboto_font');
+add_action('wp_enqueue_scripts', 'enqueue_poppins_font');
+
 
 
 function mytheme_enqueue(){
     $theme_directory = get_template_directory_uri();
-    wp_enqueue_style('mystyle', $theme_directory . '/style.css');
-    wp_enqueue_style('product-style', $theme_directory . './style/product_style.css', array('mystyle'), '1.0', 'all');
+   /*  wp_enqueue_style('mystyle', $theme_directory . '/style.css');
+    wp_enqueue_style('product-style', $theme_directory . './style/product_style.css', array('mystyle'), '1.0', 'all'); */
      wp_enqueue_script('app', $theme_directory . '/app.js');
 
 
@@ -38,9 +39,7 @@ function mytheme_init(){
         'huvudmeny' => 'huvudmeny' ,
         'cart-meny' => 'cart-meny' ,
         'footer_menu_1' => 'Footer Menu 1',
-        'footer_menu_2' => 'Footer Menu 2',
-        'footer_menu_3' => 'Footer Menu 3',
-        'footer_menu_4' => 'Footer Menu 4'
+        
     );
 register_nav_menus($menus);
 }

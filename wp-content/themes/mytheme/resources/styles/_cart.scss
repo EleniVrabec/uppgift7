@@ -1,0 +1,26 @@
+ .woocommerce{
+    background-color: rgb(168, 129, 129);
+    display: flex;
+    flex-wrap: nowrap;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    .cart-collaterals{
+        width: 40%;
+        margin: 20px;
+       
+        .cart_totals{
+            width: 100%;
+        }
+    }
+    .woocommerce-cart-form{
+        margin: 20px;
+        width: 60%;
+       
+
+    }
+    .cart-collaterals, .woocommerce-cart-form{
+        border-radius: 10px;
+        padding: 30px;
+        background-color: #fff;
+    }
+} 
