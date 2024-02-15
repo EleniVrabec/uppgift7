@@ -1,0 +1,13 @@
+.woocommerce {
+  background-color: $background_color;
+
+  .checkout {
+    display: flex;
+    flex-direction: row;
+
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
