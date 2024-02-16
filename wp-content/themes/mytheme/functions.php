@@ -124,3 +124,53 @@ add_action('woocommerce_after_cart_table', 'wrap_tbody_with_div_after_cart_table
 };
 add_action( 'woocommerce_variable_add_to_cart', 'convert_drowpdown_variables_to_buttons_woocommerce' );
  */
+
+
+// Funktion för att lägga till bilder från media library till WordPress-meny
+function add_menu_icons($items, $args) {
+    // Kontrollera om det är huvudmenyn och om vi är i adminläge
+    if ($args->theme_location == 'cart-meny' && !is_admin()) {
+        // Ersätt menytext med bilder från media library
+        $items = str_replace('My account', get_menu_image_html('user'), $items);
+        $items = str_replace('About', get_menu_image_html('search'), $items);
+        $items = str_replace('Checkout', get_menu_image_html('liked'), $items);
+        $items = str_replace('Cart', get_menu_image_html('cart'), $items);
+    }
+    return $items;
+}
+
+// Lägg till hook för att köra funktionen
+add_filter('wp_nav_menu_items', 'add_menu_icons', 10, 2);
+
+// Funktion för att hämta HTML för bild från media library baserat på titel
+function get_menu_image_html($title) {
+    // Hämta ID för bild baserat på titel
+    $image_id = attachment_url_to_postid(get_menu_image_url($title));
+
+    // Kontrollera om det finns en giltig bild
+    if ($image_id) {
+        // Hämta bildens HTML
+        $image_html = wp_get_attachment_image($image_id, 'full', false, array('class' => 'menu-image'));
+        return $image_html;
+    }
+    return ''; // Returnera tom sträng om ingen bild hittades
+}
+
+// Funktion för att hämta URL till bild från media library baserat på titel
+function get_menu_image_url($title) {
+    $args = array(
+        'post_type'      => 'attachment',
+        'post_mime_type' => 'image',
+        'post_status'    => 'inherit',
+        'posts_per_page' => 1,
+        'title'          => $title,
+    );
+
+    $attachments = get_posts($args);
+
+    if ($attachments) {
+        return wp_get_attachment_url($attachments[0]->ID);
+    }
+
+    return ''; // Returnera tom sträng om ingen bild hittades
+}
