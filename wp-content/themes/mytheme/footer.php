@@ -55,11 +55,9 @@
         </div>
         <div class="column">
             <span class="category">Newsletter</span>
-            <div class="social-icons">
-                <a href="#" target="_blank"><i class="fab fa-facebook social_media_icon"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-twitter social_media_icon"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-pinterest social_media_icon"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-linkedin social_media_icon"></i></a>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Enter Your Email Address">
+                <button type="submit">SUBSCRIBE</button>
             </div>
         </div>
     </section>
