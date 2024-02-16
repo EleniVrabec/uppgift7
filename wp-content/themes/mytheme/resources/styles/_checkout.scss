@@ -23,15 +23,58 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+
+        #billing_address_2_field {
+          padding: 0 !important;
+          margin: 0 !important;
+        }
         p {
           font-size: 14px;
           width: 100%;
 
-          span input {
-            height: 56px;
-            border-radius: 10px;
-            margin-top: 10px;
-            margin-bottom: 5px;
+          label abbr {
+            display: none;
+          }
+
+          span {
+            input {
+              height: 56px;
+              border-radius: 10px;
+              margin-top: 10px;
+              margin-bottom: 5px;
+              border: 2px solid $secondary_text_color;
+              padding-left: 7%;
+              font-size: 14px;
+              padding-top: 0;
+              padding-bottom: 0;
+            }
+            #billing_address_2 {
+              display: none;
+            }
+            span span span.select2-selection {
+              height: 58px;
+              border-radius: 10px;
+              margin-top: 10px;
+              margin-bottom: 5px;
+              display: flex;
+              align-items: center;
+              border: 2px solid $secondary_text_color;
+
+              span {
+                padding-left: 6.5%;
+                font-size: 14px;
+                color: $secondary_text_color;
+              }
+
+              .select2-selection__arrow {
+                height: 100%;
+                padding-right: 10%;
+
+                b {
+                  border-block-color: $primary_text_color;
+                }
+              }
+            }
           }
         }
         #billing_first_name_field,

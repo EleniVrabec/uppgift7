@@ -1,3 +1,2 @@
-
-import './test';
-import './checkout';
+import "./test";
+import "./checkout";

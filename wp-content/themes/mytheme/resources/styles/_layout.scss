@@ -1,11 +1,10 @@
 body {
   width: auto;
- 
+  margin: 1% 0;
   font-family: $poppins-font;
   background-color: $background_color;
 
-  .content{
+  .content {
     margin: $general-margin;
   }
 }
-
