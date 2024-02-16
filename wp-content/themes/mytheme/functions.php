@@ -13,17 +13,50 @@ function mytheme_add_woocommerce_support() {
 add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
 
 
-// functions.php eller ditt anpassade temats funktioner-fil
-
-/* function min_anpassade_knapp() {
-    echo '<p> or </p>';
-    echo '<a href="#" class="min-anpassade-knapp button">Try at home</a>';
-}
-
-add_action('woocommerce_after_add_to_cart_button', 'min_anpassade_knapp', 20); */
-
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 
+//change text on proceed to checkout btn
+function woocommerce_button_proceed_to_checkout() {
+	
+    $new_checkout_url = WC()->cart->get_checkout_url();
+    ?>
+    <a href="<?php echo $new_checkout_url; ?>" class="checkout-button button alt wc-forward">
+    
+    <?php _e( 'Check Out', 'woocommerce' ); ?></a>
+    
+<?php
+}
+
+//removes shipping 
+    add_filter( 'woocommerce_cart_needs_shipping', 'filter_cart_needs_shipping' );
+    function filter_cart_needs_shipping( $needs_shipping ) {
+        if ( is_cart() ) {
+            $needs_shipping = false;
+        }
+        return $needs_shipping;
+    }
+
+    function change_breadcrumb_delimiter( $defaults ) {
+        // Ändra delimitern till >
+        $defaults['delimiter'] = '<span class="breadcrumb-icon"> > </span> ';
+    
+        return $defaults;
+    }
+    add_filter( 'woocommerce_breadcrumb_defaults', 'change_breadcrumb_delimiter' );
+    
+
+
+
+/* function wrap_cart_table_with_div() {
+    echo '<div class="tbody-wrapper">';
+}
+add_action( 'woocommerce_before_cart_table', 'wrap_cart_table_with_div', 5 );
+
+function close_div_wrapper() {
+    echo '</div>';
+}
+add_action( 'woocommerce_after_cart_table', 'close_div_wrapper', 5 );
+ */
 
 /* function custom_change_additional_information_tab_title( $title, $key ) {
     if ( 'additional_information' === $key ) {
@@ -58,6 +91,27 @@ function enqueue_woocommerce_scripts() {
 
 
 
+/* 
+function remove_update_cart_button_from_cart() {
+    // Remove the "Update cart" button
+    remove_action('woocommerce_cart_actions', 'woocommerce_cart_totals', 5);
+}
+
+add_action('woocommerce_cart_actions', 'remove_update_cart_button_from_cart');
+ */
+
+
+/* function wrap_tbody_with_div_before_cart_table() {
+    echo '<div class="cart-tbody-wrapper">';
+}
+
+function wrap_tbody_with_div_after_cart_table() {
+    echo '</div><!-- .cart-tbody-wrapper -->';
+}
+
+add_action('woocommerce_before_cart_contents', 'wrap_tbody_with_div_before_cart_table', 5);
+add_action('woocommerce_after_cart_table', 'wrap_tbody_with_div_after_cart_table', 5);
+ */
 
 
 /* ------------------------------------ */
@@ -70,3 +124,53 @@ function enqueue_woocommerce_scripts() {
 };
 add_action( 'woocommerce_variable_add_to_cart', 'convert_drowpdown_variables_to_buttons_woocommerce' );
  */
+
+
+// Funktion för att lägga till bilder från media library till WordPress-meny
+function add_menu_icons($items, $args) {
+    // Kontrollera om det är huvudmenyn och om vi är i adminläge
+    if ($args->theme_location == 'cart-meny' && !is_admin()) {
+        // Ersätt menytext med bilder från media library
+        $items = str_replace('My account', get_menu_image_html('user'), $items);
+        $items = str_replace('About', get_menu_image_html('search'), $items);
+        $items = str_replace('Checkout', get_menu_image_html('liked'), $items);
+        $items = str_replace('Cart', get_menu_image_html('cart'), $items);
+    }
+    return $items;
+}
+
+// Lägg till hook för att köra funktionen
+add_filter('wp_nav_menu_items', 'add_menu_icons', 10, 2);
+
+// Funktion för att hämta HTML för bild från media library baserat på titel
+function get_menu_image_html($title) {
+    // Hämta ID för bild baserat på titel
+    $image_id = attachment_url_to_postid(get_menu_image_url($title));
+
+    // Kontrollera om det finns en giltig bild
+    if ($image_id) {
+        // Hämta bildens HTML
+        $image_html = wp_get_attachment_image($image_id, 'full', false, array('class' => 'menu-image'));
+        return $image_html;
+    }
+    return ''; // Returnera tom sträng om ingen bild hittades
+}
+
+// Funktion för att hämta URL till bild från media library baserat på titel
+function get_menu_image_url($title) {
+    $args = array(
+        'post_type'      => 'attachment',
+        'post_mime_type' => 'image',
+        'post_status'    => 'inherit',
+        'posts_per_page' => 1,
+        'title'          => $title,
+    );
+
+    $attachments = get_posts($args);
+
+    if ($attachments) {
+        return wp_get_attachment_url($attachments[0]->ID);
+    }
+
+    return ''; // Returnera tom sträng om ingen bild hittades
+}

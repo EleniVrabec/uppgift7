@@ -1,0 +1,89 @@
+.container {
+    display: flex;
+  }
+  
+  .column {
+    flex: 1;
+    margin-right: 20px; 
+  }
+  
+  .category {
+    color: gray; 
+  }
+  
+  .column:first-child {
+    font-weight: bold; 
+  }
+  
+  .text {
+    color: black; 
+  }
+
+  #footermeny.menu {
+    list-style: none; 
+    margin-bottom: 10px;
+  }
+  #footermeny.menu li {
+    margin-bottom: 50px; 
+    margin-left: -40px;
+    margin-top: 50px;
+    
+  }
+  #footermeny.menu li a {
+    color: black; 
+    text-decoration: none; 
+    font-weight: bold;
+    
+  }
+  
+  #footermeny.menu li a:hover {
+    color: blue; 
+  }
+
+
+  .column {
+    .newsletter-form {
+        display: flex;
+        align-items: center;
+
+        input[type="email"] {
+            flex: 1; // Input fyller resten av utrymmet i kolumnen
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid #000000; // Lägg till en understreckbotten
+            margin-right: 10px;
+            background-color: transparent; // Bakgrundsfärg är transparent
+            outline: none; // Ta bort den blå kanten runt input när den är fokuserad
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: transparent; // Transparent bakgrundsfärg för knappen
+            color: #000000; // Färgen för texten på knappen
+            border: none;
+            border-bottom: 1px solid #000000; // Lägg till en understreckbotten
+            cursor: pointer;
+            transition: color 0.3s ease; // Övergång för textfärgen
+            font-weight: bold;
+        }
+
+        button[type="submit"]:hover {
+            color: #000000; // Ändra textfärgen vid hovring
+        }
+    }
+}
+
+.footer2{
+    background-color: #FAF4F4;
+    display: flex;
+    justify-content: space-between;
+    .column{
+        width: calc(33.33% - 16px);
+        padding-bottom: 100px;
+        margin-right: 16px;
+        margin-left: 100px;
+        margin-top: 100px;
+        
+    }
+}
+  

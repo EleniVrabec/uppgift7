@@ -1,0 +1,67 @@
+.column-51 {
+    display: flex; // Använd flexbox för att placera innehållet
+    
+
+    nav.menu {
+        flex: 1; // Dela utrymmet jämnt mellan menyn och #loginmenu
+        display: flex; // Använd flexbox för att centrera menyn horisontellt
+        justify-content: center; // Placera menyn i mitten
+        align-items: center; // Centrera innehållet vertikalt
+        list-style: none; // Tar bort prickarna (bullets) före varje menyval
+        padding: 0; // Tar bort eventuell padding
+        margin: 0; // Tar bort eventuell marginal
+        flex-direction: column;
+
+        li {
+            margin-right: 10px; // Justera avståndet mellan menyvalen efter behov
+            list-style: none;
+            display: flex; // Använd flexbox för att centrera innehållet
+
+            a {
+                
+                color: black; // Justera färgen på menytexten efter behov
+                text-decoration: none; // Tar bort understrykning på länkarna
+                padding: 5px 10px; // Justera paddingen runt menyvalen efter behov
+
+                i {
+                    margin-right: 5px; // Justera avståndet mellan ikonen och texten efter behov
+                }
+
+                &:hover {
+                    color: blue; // Justera färgen på texten när man hovrar över länkarna
+                }
+            }
+        }
+    }
+
+    #loginmenu {
+        margin-left: auto; // Flytta #loginmenu helt till höger
+        display: flex; // Använd flexbox för att centrera innehållet
+        align-items: center; // Centrera innehållet vertikalt
+        margin-top: -50px;
+    }
+}
+
+#primary-menu.menu {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+  }
+  
+  #primary-menu.menu li {
+    margin-right: 10px;
+  }
+  
+  #primary-menu.menu li:last-child {
+    margin-right: 0;
+  }
+  
+  #primary-menu.menu li a {
+    text-decoration: none;
+    padding: 5px 50px;
+  }
+  
+  #primary-menu.menu li a:hover {
+    color: blue;
+  }

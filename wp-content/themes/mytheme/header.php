@@ -12,11 +12,8 @@
 <body>
     
     <?php wp_body_open(); ?>
-   
     <header>
-        <div class="column-50">
-                
-        </div>
+
         <div class="column-51">
         
             <?php 
@@ -35,7 +32,7 @@
             <?php 
             $menu = array(
                 'theme_location' => 'cart-meny',
-                'menu_id' => 'cart-menu',
+                'menu_id' => 'loginmenu',
                 'container' => 'nav',
                 'container_class' => 'menu'
             );
