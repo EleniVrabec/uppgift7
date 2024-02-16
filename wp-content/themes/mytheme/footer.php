@@ -19,7 +19,14 @@
 <footer>
     <section class="container">
         <div class="column">
-            Sätt in hooks för adress här
+            <?php
+            $store_address = get_option('woocommerce_store_address');
+            $store_address .= get_option('woocommerce_store_city');
+            $store_address .= get_option('woocommerce_store_postcode');
+            $store_address .= get_option('woocommerce_store_country');
+            
+            echo esc_html($store_address);
+            ?>
         </div>
         <div class="column">
             <span class="category">Links</span>
