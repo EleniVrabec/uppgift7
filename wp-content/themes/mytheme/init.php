@@ -1,6 +1,7 @@
 <?php
 require_once('settings.php');
 require_once('shortcodes.php');
+require_once('hooks.php');
 
 // Enqueue Font Awesome stylesheet
 function enqueue_font_awesome() {
