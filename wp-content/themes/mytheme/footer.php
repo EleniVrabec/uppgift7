@@ -3,18 +3,16 @@
     <section class="container">
     <div class="column">
  
- <a href="/">
-            <img class="logo_f" src="<?=get_template_directory_uri() . '/assets/images/logo.png';?>" alt="logo">
-            </a>
+    Sätt in hooks för adress här
 
 
 </div>
 <div class="column">
- <span class="category">Information</span>
+ <span class="category">Links</span>
  <?php
                     $menu_about_us = array(
-                        'theme_location' => 'footer_menu_1',
-                        'menu_id' => 'about-us-menu',
+                        'theme_location' => 'huvudmeny',
+                        'menu_id' => 'footermeny',
                         'container' => 'nav',
                         'container_class' => 'menu'
                     );
@@ -24,7 +22,7 @@
 
 </div>
 <div class="column">
- <span class="category">Contacts</span>
+ <span class="category">Help</span>
  <p>
                 <?php
                 $store_address = get_option('store_address');
@@ -46,7 +44,7 @@
 
 </div>
 <div class="column">
- <span class="category">Social Media</span>
+ <span class="category">Newsletter</span>
  <div class="social-icons">
       
  <a href="#" target="_blank"><i class="fab fa-facebook social_media_icon"></i></a>
