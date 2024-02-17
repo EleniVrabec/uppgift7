@@ -15,7 +15,6 @@
     </section>
 </footer>
 
-<!-- Din befintliga footer fortsätter här -->
 <footer>
     <section class="container">
         <div class="footercolumn1">
@@ -50,11 +49,11 @@
     
                 <?php 
                 $menu = array(
-                    'menu' => 'Footer', // Ange namnet på den menyn du vill visa
+                    'menu' => 'Footer', 
                     'menu_id' => 'footermeny',
                     'container' => 'nav',
                     'theme_location' => 'Footer Menu 1',
-                    'container_class' => 'Footer_Menu_1' // Observera att det är bättre att använda en klassnamn utan mellanslag
+                    'container_class' => 'Footer_Menu_1' 
                 );
 
                 wp_nav_menu($menu);
