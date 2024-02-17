@@ -24,6 +24,7 @@
         flex-wrap: wrap;
         padding: 10%;
         width: calc(100% + 10px);
+        padding-top: 0; /* Tar bort padding från toppen */
        
       
         li.product{
@@ -86,3 +87,24 @@
             }
         }
     }
+
+
+    .product {
+        &.type-product.post-78.status-publish.instock.product_cat-uncategorized.has-post-thumbnail.taxable.shipping-taxable.purchasable.product-type-simple,
+        &.type-product.post-90.status-publish.instock.product_cat-uncategorized.has-post-thumbnail.taxable.shipping-taxable.purchasable.product-type-simple,
+        &.type-product.post-91.status-publish.last.instock.product_cat-uncategorized.has-post-thumbnail.taxable.shipping-taxable.purchasable.product-type-simple {
+          margin-top: 140px; 
+        }
+      }
+
+    .product {
+
+        &.type-product.post-97.status-publish.first.instock.product_cat-uncategorized.has-post-thumbnail.taxable.shipping-taxable.purchasable.product-type-simple {
+            margin-top: 150px; 
+        }
+        }
+    .product {        
+        &.type-product.post-54.status-publish.instock.product_cat-uncategorized.has-post-thumbnail.taxable.shipping-taxable.purchasable.product-type-simple {
+            margin-top: 200px; 
+        }
+        }
