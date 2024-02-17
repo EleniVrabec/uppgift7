@@ -41,6 +41,7 @@
 .column .newsletter-form {
   display: flex;
   align-items: center;
+  margin-top: 40px;
 
   input[type="email"] {
       flex: 1; /* Input fyller resten av utrymmet i kolumnen */
@@ -69,10 +70,21 @@
 }
 
 
+.footercolumn1{
+  margin-top: 220px;
+  margin-left: -70px;
+  color: #9F9F9F;
+  margin-right: 200px;
+  width: 290px;
+}
+
 .column:first-child {
   /* Lägg till dina specifika stilregler för den första kolumnen här */
   margin-top: 220px;
   margin-left: -70px;
+  
+  
+
 }
 
 .footer2{

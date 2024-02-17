@@ -18,7 +18,7 @@
 <!-- Din befintliga footer fortsätter här -->
 <footer>
     <section class="container">
-        <div class="column">
+        <div class="footercolumn1">
             <?php
             // Hämta butiksadress, stad, postnummer och land
             $store_address = get_option('woocommerce_store_address');
@@ -47,16 +47,19 @@
         <div class="column">
             <span class="category">Help</span>
             <div class="column-51">
-        
+    
                 <?php 
                 $menu = array(
-                    'theme_location' => 'Footer Menu 1',
-                    'menu_id' => 'Footer Menu 1',
+                    'menu' => 'Footer', // Ange namnet på den menyn du vill visa
+                    'menu_id' => 'footermeny',
                     'container' => 'nav',
-                    'container_class' => 'Footer Menu 1'
+                    'theme_location' => 'Footer Menu 1',
+                    'container_class' => 'Footer_Menu_1' // Observera att det är bättre att använda en klassnamn utan mellanslag
                 );
+
+                wp_nav_menu($menu);
+                ?>
                 
-                wp_nav_menu($menu); ?>    
             <!--   <button class="hamburger">&#9776;</button>      -->
             </div>
         </div>
