@@ -71,6 +71,7 @@
             </div>
         </div>
     </section>
+    <div class="footer-border"></div>
     <div class="copyright">
         <p>&copy; <?php echo date("Y"); ?> All rights reserved</p>
     </div>
