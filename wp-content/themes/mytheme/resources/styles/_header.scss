@@ -1,7 +1,10 @@
 .column-51 {
     display: flex; // Använd flexbox för att placera innehållet
     
+    #loginmenu.menu{
+      margin-right: 200px;
 
+    }
     nav.menu {
         flex: 1; // Dela utrymmet jämnt mellan menyn och #loginmenu
         display: flex; // Använd flexbox för att centrera menyn horisontellt
@@ -11,6 +14,23 @@
         padding: 0; // Tar bort eventuell padding
         margin: 0; // Tar bort eventuell marginal
         flex-direction: column;
+        margin-bottom: 10px;
+
+        a{
+          width: 48px;
+          height: 24px;
+          top: 38px;
+          left: 505px;
+          font-family: $poppins-font;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+          letter-spacing: 0em;
+          text-align: left;
+
+
+        }
+        
 
         li {
             margin-right: 10px; // Justera avståndet mellan menyvalen efter behov
@@ -38,7 +58,7 @@
         margin-left: auto; // Flytta #loginmenu helt till höger
         display: flex; // Använd flexbox för att centrera innehållet
         align-items: center; // Centrera innehållet vertikalt
-        margin-top: -50px;
+        margin-top: -70px;
     }
 }
 
