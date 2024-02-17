@@ -45,16 +45,19 @@
 
   input[type="email"] {
       flex: 1; /* Input fyller resten av utrymmet i kolumnen */
-      padding: 10px;
+      padding-bottom: 5px;
       border: none;
       border-bottom: 1px solid #000000; /* Lägg till en understreckbotten */
-      margin-right: 10px;
       background-color: transparent; /* Bakgrundsfärg är transparent */
       outline: none; /* Ta bort den blå kanten runt input när den är fokuserad */
+      text-align: left; /* Placera text längst till vänster */
   }
 
+
+
   button[type="submit"] {
-      padding: 10px 20px;
+      margin-left: 10px;
+      padding-bottom: 5px;
       background-color: transparent; /* Transparent bakgrundsfärg för knappen */
       color: #000000; /* Färgen för texten på knappen */
       border: none;
@@ -113,6 +116,7 @@ $column-margin: 130px; // Definiera variabel för marginalen mellan kolumnerna
             letter-spacing: 0em;
             text-align: left;
 
+
             
         }
           h2 {
@@ -143,6 +147,8 @@ $column-margin: 130px; // Definiera variabel för marginalen mellan kolumnerna
             line-height: 30px;
             letter-spacing: 0em;
             text-align: left;
+            margin-top: -20px;
+
 
 
             

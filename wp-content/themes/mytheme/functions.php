@@ -174,3 +174,4 @@ function get_menu_image_url($title) {
 
     return ''; // Returnera tom sträng om ingen bild hittades
 }
+
