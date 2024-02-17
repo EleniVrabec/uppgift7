@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var billingAddressInput = document.getElementById("billing_address_1");
+  var billingAddressInput = document.getElementById("billing_email");
   if (billingAddressInput) {
-    billingAddressInput.placeholder = ""; // Set placeholder to empty string
+    billingAddressInput.value = ""; // Set placeholder to empty string
   }
 });
