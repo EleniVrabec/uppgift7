@@ -178,7 +178,42 @@
       ul {
         border-bottom: none;
         li {
+          color: $secondary_text_color;
+
+          label[for="payment_method_cod"] {
+            color: black;
+          }
           input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none; /* For Safari and older versions of Chrome */
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            border: 2px solid $secondary_text_color;
+            outline: none;
+            cursor: pointer;
+
+            &:checked {
+              background-color: $primary_text_color;
+              border: 2px solid $primary_text_color;
+            }
+          }
+          .payment-on {
+            appearance: none;
+            -webkit-appearance: none; /* For Safari and older versions of Chrome */
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            border: 2px solid #333;
+            outline: none;
+            cursor: pointer;
+
+            &:checked {
+              background-color: #333;
+            }
+          }
+
+          .payment-off {
             appearance: none;
             -webkit-appearance: none; /* For Safari and older versions of Chrome */
             height: 12px;
@@ -196,7 +231,9 @@
             background-color: rgba(255, 255, 255, 0);
             color: $secondary_text_color;
             margin-top: 0;
-            padding-top: 0;
+            padding-top: 10px;
+            padding-left: 0;
+            padding-bottom: 0;
 
             &::before {
               display: none;
@@ -206,16 +243,30 @@
             }
           }
         }
-        .payment_method_cod {
-          color: $secondary_text_color;
+      }
+      .form-row {
+        padding-top: 0;
 
-          input[type="radio"] {
-            border: 2px solid $secondary_text_color;
+        div p {
+          margin-top: 0;
+          font-size: 14px;
 
-            &:checked {
-              background-color: $secondary_text_color;
-            }
+          a {
+            text-decoration: none;
+            font-weight: 600;
+            color: $primary_text_color;
           }
+        }
+        button {
+          background-color: #ffffff00;
+          border: 1px solid $primary_text_color;
+          color: $primary_text_color;
+          font-size: 16px;
+          border-radius: 15px;
+          height: 50px;
+          width: 60%;
+          margin: 30px auto 0;
+          font-weight: 400;
         }
       }
     }
