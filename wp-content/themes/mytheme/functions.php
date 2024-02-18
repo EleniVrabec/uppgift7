@@ -28,3 +28,19 @@ function enqueue_woocommerce_scripts() {
 
 
 
+add_action( 'woocommerce_checkout_before_order_review', 'select_free_shipping_method' );
+
+function select_free_shipping_method() {
+    
+    $available_methods = WC()->shipping->get_shipping_methods();
+
+    if ( isset( $available_methods['free_shipping'] ) ) {
+        ?>
+        <script type="text/javascript">
+            jQuery(document).ready(function($){
+                $('input[name="shipping_method[0]"]').filter('[value="free_shipping:1"]').prop('checked', true);
+            });
+        </script>
+        <?php
+    }
+}
