@@ -1,8 +1,8 @@
-.content {
+.content-1 {
   .home-head {
     background-color: #fbebb5;
     width: 100vw;
-    margin: -6% -10% 0;
+    margin-bottom: 0;
     gap: 0;
 
     div {
@@ -40,7 +40,6 @@
   }
   .block-2 {
     background-color: #faf4f4;
-    margin: 0 -10%;
     width: 100vw;
     gap: 0;
 
@@ -138,7 +137,6 @@
   .block-4 {
     background-color: #fff9e5;
     width: 100vw;
-    margin: 0 -10%;
     gap: 0;
     flex-direction: row-reverse;
     padding-top: 8%;
@@ -189,15 +187,21 @@
   }
   .block-5 {
     position: relative;
-    margin: 0 -10%;
     height: auto;
 
-    div figure {
-      width: 100vw;
-      object-fit: cover;
+    div {
+      margin-bottom: 0;
+      figure {
+        width: 100vw;
+        object-fit: cover;
+        margin-bottom: 0;
 
-      img {
-        width: 100%;
+        img {
+          width: 100%;
+        }
+        div div {
+          display: none;
+        }
       }
     }
     div .block-5-text-container {
