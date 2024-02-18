@@ -44,3 +44,11 @@ function select_free_shipping_method() {
         <?php
     }
 }
+
+add_action('wp_head', 'hide_hero_container_on_homepage');
+
+function hide_hero_container_on_homepage() {
+    if (is_front_page()) {
+        echo '<style>.hero-container { display: none; }</style>';
+    }
+}

@@ -85,3 +85,13 @@
   #primary-menu.menu li a:hover {
     color: blue;
   }
+
+  @media screen and (max-width: 2012px) {
+    .column-51 {
+      display: flex;
+      #loginmenu.menu {
+        margin-right: 0; /* Remove the margin */
+      }
+    }
+    
+  }
