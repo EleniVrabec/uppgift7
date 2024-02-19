@@ -44,12 +44,13 @@ add_action( 'woocommerce_after_shop_loop_item', 'remove_add_to_cart_buttons', 1 
 add_action( 'woocommerce_before_shop_loop', 'custom_wrapper_open', 19 );
     function custom_wrapper_open() {
         echo '<div class="custom-wrapper">';
+        
        
     }
     
  add_action( 'woocommerce_before_shop_loop', 'custom_wrapper_close', 31 );
     function custom_wrapper_close() {
-       
+        echo 'heloo';
         echo '</div>';
     }
 
