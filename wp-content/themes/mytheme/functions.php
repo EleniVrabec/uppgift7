@@ -24,25 +24,27 @@ function enqueue_woocommerce_scripts() {
     }
 }
 
+add_filter('woocommerce_package_rates', 'restrict_shipping_options', 10, 2);
 
-
-
-
-add_action( 'woocommerce_checkout_before_order_review', 'select_free_shipping_method' );
-
-function select_free_shipping_method() {
+function restrict_shipping_options($rates, $package) {
     
-    $available_methods = WC()->shipping->get_shipping_methods();
-
-    if ( isset( $available_methods['free_shipping'] ) ) {
-        ?>
-        <script type="text/javascript">
-            jQuery(document).ready(function($){
-                $('input[name="shipping_method[0]"]').filter('[value="free_shipping:1"]').prop('checked', true);
-            });
-        </script>
-        <?php
+    $free_shipping_available = false;
+    foreach ($rates as $rate) {
+        if ($rate->method_id === 'free_shipping') {
+            $free_shipping_available = true;
+            break;
+        }
     }
+
+    if ($free_shipping_available) {
+        foreach ($rates as $key => $rate) {
+            if ($rate->method_id !== 'free_shipping') {
+                unset($rates[$key]);
+            }
+        }
+    }
+
+    return $rates;
 }
 
 add_action('wp_head', 'hide_hero_container_on_homepage');
