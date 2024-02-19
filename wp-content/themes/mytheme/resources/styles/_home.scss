@@ -29,6 +29,9 @@
             color: $primary_text_color;
             border-bottom: 2px solid $primary_text_color;
             padding-bottom: 10px;
+            &:hover {
+              transform: scale(1.1);
+            }
           }
         }
       }
@@ -66,6 +69,9 @@
             color: $primary_text_color;
             border-bottom: 2px solid $primary_text_color;
             padding-bottom: 10px;
+            &:hover {
+              transform: scale(1.1);
+            }
           }
         }
         div div .white-sofa {
@@ -94,6 +100,9 @@
       }
       .wp-block-woocommerce-all-products {
         .wc-block-grid__products {
+          width: 100%;
+        }
+        .wc-block-grid__products {
           gap: 0px;
         }
         img {
@@ -105,6 +114,9 @@
           height: 60px;
           a {
             text-decoration: none;
+            &:hover {
+              transform: scale(1.1);
+            }
           }
         }
         span {
@@ -130,6 +142,9 @@
           color: $primary_text_color;
           border-bottom: 2px solid $primary_text_color;
           padding-bottom: 10px;
+          &:hover {
+            transform: scale(1.1);
+          }
         }
       }
     }
@@ -167,6 +182,9 @@
             color: $primary_text_color;
             border-bottom: 2px solid $primary_text_color;
             padding-bottom: 10px;
+            &:hover {
+              transform: scale(1.1);
+            }
           }
         }
         .wp-block-button__link {
@@ -233,11 +251,10 @@
         color: $primary_text_color;
         font-size: 22px;
         margin-top: 11%;
+        &:hover {
+          transform: scale(1.1);
+        }
       }
     }
   }
-}
-
-body.home main {
-  margin-bottom: 0;
 }

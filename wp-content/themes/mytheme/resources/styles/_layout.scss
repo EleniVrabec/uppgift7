@@ -8,3 +8,10 @@ body {
     margin: $general-margin;
   }
 }
+
+button {
+  &:hover {
+    color: $primary_text_color;
+    transform: scale(1.05s);
+  }
+}
