@@ -98,12 +98,17 @@
                     background-color:$yellow_bckg;
                     border-radius: 10px;
                 }
-                .product-name a{
+                .product-name{ 
+                    a{
                     text-decoration: none;
                     color: $secondary_text_color;
                     font-size: 16px;
                     width: 100px;
                 }
+                .variation{
+                    display: none;
+                }
+            }
                 .product-price{
                     color: $secondary_text_color;
                 }
