@@ -85,34 +85,24 @@
 
 $column-margin: 5%; // Mellanrum mellan kolumnerna
 $side-margin: 10%; // Mellanrum från sidan
+$top-padding: 5px; // Ny variabel för top padding
+$bottom-padding: 85px; // Ny variabel för bottom padding
 
 .footer2 {
     background-color: #FAF4F4;
-    width: 100vw;
-    overflow: hidden; // För att se till att bakgrundsfärgen täcker hela bredden även när kolumnerna trycks ihop vid minskad upplösning
-    padding: 30px $side-margin; // Uppdaterad padding för att matcha sidomarginalen
+    width: calc(100% - (2 * #{$side-margin})); // Använd calc() för att räkna ut den totala bredden med hänsyn till sidomarginalen
+    padding: $top-padding $side-margin $bottom-padding; // Uppdaterad padding
     display: flex;
-    flex-wrap: nowrap; // Kolumnerna kommer inte att hoppa ned på nästa rad
+    flex-wrap: nowrap;
 
     .column {
         flex: 1;
 
         &:not(:last-child) {
-            margin-right: $column-margin; // Använd mellanrum mellan kolumnerna
+            margin-right: $column-margin;
         }
 
-        h1 {
-            width: 205px;
-            height: 48px;
-            font-family: $poppins-font;
-            font-size: 32px;
-            font-weight: 500;
-            line-height: 48px;
-            letter-spacing: 0em;
-            text-align: left;
-            margin: 0; // Ta bort allt mellanrum från h1-elementet
-        }
-
+        h1,
         h2 {
             height: 48px;
             font-family: $poppins-font;
@@ -121,11 +111,10 @@ $side-margin: 10%; // Mellanrum från sidan
             line-height: 48px;
             letter-spacing: 0em;
             text-align: left;
-            margin: 0; // Ta bort allt mellanrum från h2-elementet
+            margin: 0;
         }
 
         p {
-            width: 376px;
             height: 60px;
             color: #9F9F9F;
             font-family: $poppins-font;
@@ -134,7 +123,7 @@ $side-margin: 10%; // Mellanrum från sidan
             line-height: 30px;
             letter-spacing: 0em;
             text-align: left;
-            
+            margin: 0;
         }
     }
 }
