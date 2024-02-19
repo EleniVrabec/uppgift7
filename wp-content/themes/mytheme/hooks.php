@@ -219,3 +219,24 @@ function get_menu_image_url($title) {
 
 
 
+/* --------rewuew stars----------------- */
+// Remove default WooCommerce action for product rating
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+
+// Add custom function to display your content in place of the product rating
+add_action( 'woocommerce_single_product_summary', 'mytheme_woocommerce_single_product_summary', 10 );
+
+function mytheme_woocommerce_single_product_summary(){
+
+    global $product;
+    $rating = $product->get_average_rating();
+    $width = ($rating / 5) * 100;
+
+    echo'<div class="rating">
+    <div class="fill" style="width:'. $width .'%;"> </div>
+     </div>';
+   
+}
+
+
+/* ------------------------------------ */
