@@ -239,3 +239,15 @@ function mytheme_woocommerce_single_product_summary(){
 
 
 /* ------------------------------------ */
+
+
+add_filter( 'woocommerce_catalog_orderby', 'custom_woocommerce_catalog_orderby' );
+function custom_woocommerce_catalog_orderby( $options ) {
+    $options['menu_order'] = 'Default';
+    $options['popularity'] = 'Popularity';
+    $options['rating'] = 'Average rating';
+    $options['date'] = 'Latest';
+    $options['price'] = 'Price: low to high';
+    $options['price-desc'] = 'Price: high to low';
+    return $options;
+}
