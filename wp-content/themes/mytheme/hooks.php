@@ -40,19 +40,70 @@ add_action( 'woocommerce_after_shop_loop_item', 'remove_add_to_cart_buttons', 1 
       }
     }
 
-// hook to wrap the showing results and sorting in shop page
+$filter_image_title = "Filter"; // Titel för din filterbild från media library
+$grid_image_title = "Gridfilter"; // Titel för din gridfilterbild från media library
+$list_image_title = "Listview"; // Titel för din listvybild från media library
+$line_image_title = "Line"; // Titel för din linebild från media library
+
+// Hämta bildernas ID baserat på deras titlar
+global $wpdb;
+$filter_image_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type = 'attachment'", $filter_image_title ) );
+$grid_image_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type = 'attachment'", $grid_image_title ) );
+$list_image_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type = 'attachment'", $list_image_title ) );
+$line_image_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type = 'attachment'", $line_image_title ) );
+
+// Hook för att öppna anpassad wrapper för produktsidan
 add_action( 'woocommerce_before_shop_loop', 'custom_wrapper_open', 19 );
-    function custom_wrapper_open() {
-        echo '<div class="custom-wrapper">';
-        
-       
-    }
+function custom_wrapper_open() {
+    global $filter_image_id, $grid_image_id, $list_image_id, $line_image_id;
+
+    echo '<div class="custom-wrapper">';
     
- add_action( 'woocommerce_before_shop_loop', 'custom_wrapper_close', 31 );
-    function custom_wrapper_close() {
-        echo 'heloo';
-        echo '</div>';
+    // Visa formulär för antal produkter att visa
+    ?>
+    <form class="custom-products-per-page" action="" method="GET">
+        <div class="custom-products-per-page-wrapper">
+            <label for="custom-products-per-page"><?php _e( 'Show', 'text-domain' ); ?></label>
+            <input type="number" name="custom-products-per-page" id="custom-products-per-page" value="<?php echo isset( $_GET['custom-products-per-page'] ) ? esc_attr( $_GET['custom-products-per-page'] ) : ''; ?>" placeholder="<?php _e( '16', 'text-domain' ); ?>" class="custom-products-per-page-input">
+            <input type="submit" value="<?php esc_attr_e( 'Apply', 'text-domain' ); ?>">
+        </div>
+    </form>
+    <?php
+    
+    // Lägg till ikon för filter från media library
+    echo '<div class="filter-icon">';
+    if ( $filter_image_id ) {
+        echo wp_get_attachment_image( $filter_image_id, 'full', false, array( 'alt' => 'Filter Image' ) ); // Använd din egen filterbild från media library
     }
+    echo '</div>';
+
+    // Lägg till ikon för gridfilter från media library
+    echo '<div class="gridfilter-icon">';
+    if ( $grid_image_id ) {
+        echo wp_get_attachment_image( $grid_image_id, 'full', false, array( 'alt' => 'Grid Filter Image' ) ); // Använd din egen gridfilterbild från media library
+    }
+    echo '</div>';
+
+    // Lägg till ikon för listvy från media library
+    echo '<div class="listview-icon">';
+    if ( $list_image_id ) {
+        echo wp_get_attachment_image( $list_image_id, 'full', false, array( 'alt' => 'List View Image' ) ); // Använd din egen listvybild från media library
+    }
+    echo '</div>';
+
+    // Lägg till ikon för line från media library
+    echo '<div class="line-icon">';
+    if ( $line_image_id ) {
+        echo wp_get_attachment_image( $line_image_id, 'full', false, array( 'alt' => 'Line Image' ) ); // Använd din egen linebild från media library
+    }
+    echo '</div>';
+}
+
+// Hook för att stänga anpassad wrapper för produktsidan
+add_action( 'woocommerce_before_shop_loop', 'custom_wrapper_close', 31 );
+function custom_wrapper_close() {
+    echo '</div>'; // Stäng den anpassade wrapper
+}
 
 
 // add sort by label 
@@ -165,4 +216,6 @@ function get_menu_image_url($title) {
 
     return ''; // Returnera tom sträng om ingen bild hittades
 }
+
+
 

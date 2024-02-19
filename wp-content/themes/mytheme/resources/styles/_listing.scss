@@ -1,38 +1,49 @@
-   .custom-wrapper{
+.custom-wrapper {
     display: flex;
     justify-content: space-between;
     padding: 1% 1% 1% 1%;
-    background-color:$pink_bckg ;
+    background-color: $pink_bckg;
     margin-top: 3%;
-    .woocommerce-result-count{
-       
-        padding-left: 10%;
-        padding-top: 1%;
-        margin: 0;
-    }
-    .woocommerce-ordering{
-       padding-right: 10%;
-       label{
-        padding-right: 5px;
-       }
-       .orderby{
-        border: none;
-        width: 188px;
-        height: 55px;
-        top: 485px;
-        left: 1152px;
-        color:$secondary_text_color;
-        background-color: $background_color;
-        option{
-            color:$secondary_text_color;
+
+    .custom-products-per-page {
+        order: 1; // Sätt ordning till 2
+        margin-left: auto; // Placera längst ut till höger
+        margin-right: 1%; // Lägg till ett mellanrum på 1%
+        
+        .custom-products-per-page-input{
+            border: none;
+            width: 55px;
+            height: 55px;
+            font-size: 20px;
+            font-family: Poppins;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 30px;
+            letter-spacing: 0em;
+            text-align: left;
         }
-
-       }
-        
-        
     }
 
-   }
+    .woocommerce-ordering {
+        order: 2; // Sätt ordning till 1
+        margin-right: 5%;
+        label {
+            padding-right: 5px;
+        }
+        .orderby {
+            border: none;
+            width: 188px;
+            height: 55px;
+            top: 485px;
+            left: 1152px;
+            color: $secondary_text_color;
+            background-color: $background_color;
+            option {
+                color: $secondary_text_color;
+            }
+        }
+    }
+}
    
     ul.products{
         display: flex;
@@ -134,3 +145,24 @@
             margin-top: 200px; 
         }
         } */
+
+.custom-wrapper {
+    display: flex;
+    justify-content: flex-start; // Centrera ikonerna horisontellt
+    align-items: center; // Centrera ikonerna vertikalt
+
+    .filter-icon,
+    .gridfilter-icon,
+    .listview-icon,
+    .line-icon {
+        margin-left: 0; // Ta bort eventuella marginaler till vänster
+        margin-right: 2%; // Lägg till 5% mellanrum mellan ikonerna
+    }
+
+    .filter-icon {
+        margin-left: 10%; // Placera första ikonen 10% från vänster sida
+    }
+}
+
+
+
