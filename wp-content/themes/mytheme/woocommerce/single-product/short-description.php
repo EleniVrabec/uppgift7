@@ -26,20 +26,8 @@ $short_description = apply_filters( 'woocommerce_short_description', $post->post
 if ( ! $short_description ) {
 	return;
 }
-// Hämta värden från anpassade fält
-$size_medium = get_post_meta($post->ID, 'Medium', true);
+
 ?>
 <div class="woocommerce-product-details__short-description">
 	<?php echo $short_description; // WPCS: XSS ok. ?>
 </div>
-
-<!-- <div id="size_wrapp">
-
-<div > <p> Select size <span> <?php echo esc_html($size_medium); ?></span></p> <p> Size guide </p> </div>
-<div>
-	<button>134mm <span><?php echo esc_html($size_medium); ?></span></button>
-	<button>134mm <span>Large</span></button>
-	<button>134mm <span>Extra Large</span></button>
-	
-</div>
-</div> -->

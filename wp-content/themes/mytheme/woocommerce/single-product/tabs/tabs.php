@@ -26,7 +26,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see woocommerce_default_product_tabs()
  */
-
 $product_tabs = apply_filters( 'woocommerce_product_tabs', array() );
 
 if ( ! empty( $product_tabs ) ) : ?>
@@ -41,7 +40,6 @@ if ( ! empty( $product_tabs ) ) : ?>
 				</li>
 			<?php endforeach; ?>
 		</ul>
-		<div class="slider-line"></div>
 		<?php foreach ( $product_tabs as $key => $product_tab ) : ?>
 			<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--<?php echo esc_attr( $key ); ?> panel entry-content wc-tab" id="tab-<?php echo esc_attr( $key ); ?>" role="tabpanel" aria-labelledby="tab-title-<?php echo esc_attr( $key ); ?>">
 				<?php
@@ -53,7 +51,29 @@ if ( ! empty( $product_tabs ) ) : ?>
 		<?php endforeach; ?>
 
 		<?php do_action( 'woocommerce_product_after_tabs' ); ?>
+
+		<!-- Add two pictures here -->
+		<?php
+        // Get the uploads directory URL
+        $uploads_dir = wp_upload_dir();
+
+        // Get the base URL of the uploads directory
+        $uploads_base_url = $uploads_dir['baseurl'];
+
+        // Specify the relative path to your image within the uploads directory
+        $image_path1 = '/2024/02/Cloud-sofa-three-seater-ottoman_2-1.png';
+        $image_path2 = '/2024/02/Cloud-sofa-three-seater-ottoman_1-1.png';
 	
+		// Combine the uploads base URL with the image path to get the full image URL
+        $image_url1 = $uploads_base_url . $image_path1;
+        $image_url2 = $uploads_base_url . $image_path2;
+        ?>
+
+
+        <div class="extra-pictures">
+		<img src="<?php echo esc_url($image_url1); ?>" alt="Sofa 1">
+        <img src="<?php echo esc_url($image_url2); ?>" alt="Sofa 2">
+        </div>
 	</div>
 
 <?php endif; ?>
