@@ -65,7 +65,6 @@ function custom_wrapper_open() {
         <div class="custom-products-per-page-wrapper">
             <label for="custom-products-per-page"><?php _e( 'Show', 'text-domain' ); ?></label>
             <input type="number" name="custom-products-per-page" id="custom-products-per-page" value="<?php echo isset( $_GET['custom-products-per-page'] ) ? esc_attr( $_GET['custom-products-per-page'] ) : ''; ?>" placeholder="<?php _e( '16', 'text-domain' ); ?>" class="custom-products-per-page-input">
-            <input type="submit" value="<?php esc_attr_e( 'Apply', 'text-domain' ); ?>">
         </div>
     </form>
     <?php
@@ -240,3 +239,15 @@ function mytheme_woocommerce_single_product_summary(){
 
 
 /* ------------------------------------ */
+
+
+add_filter( 'woocommerce_catalog_orderby', 'custom_woocommerce_catalog_orderby' );
+function custom_woocommerce_catalog_orderby( $options ) {
+    $options['menu_order'] = 'Default';
+    $options['popularity'] = 'Popularity';
+    $options['rating'] = 'Average rating';
+    $options['date'] = 'Latest';
+    $options['price'] = 'Price: low to high';
+    $options['price-desc'] = 'Price: high to low';
+    return $options;
+}
