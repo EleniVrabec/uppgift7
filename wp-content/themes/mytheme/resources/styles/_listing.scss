@@ -173,3 +173,63 @@
 
 
 
+.variable-items-wrapper.color-variable-items-wrapper {
+    li {
+      // Styling för första child-elementet (Blue)
+      &:first-child {
+        background-color: #816DFA;
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+
+      }
+      
+      // Styling för andra child-elementet (Black)
+      &:nth-child(2) {
+        background-color: #000000;
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+      }
+      
+      // Styling för tredje child-elementet (Golden)
+      &:last-child {
+        background-color: #CDBA7B;
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+      }
+    }
+  }
+
+.variable-items-wrapper.button-variable-items-wrapper {
+  li {
+
+
+    //  (L)
+    &:first-child {
+        background-color: #FAF4F4;
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+    }
+    
+    //  (XL)
+    &:nth-child(2) {
+        background-color: #FAF4F4;
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+
+    }
+    
+    //  (XS)
+    &:last-child {
+        background-color: #FAF4F4;
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+    }
+  }
+}
+
