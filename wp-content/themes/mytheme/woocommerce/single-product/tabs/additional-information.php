@@ -4,13 +4,6 @@
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/single-product/tabs/additional-information.php.
  *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see     https://woo.com/document/template-structure/
  * @package WooCommerce\Templates
  * @version 3.0.0
  */
@@ -24,7 +17,25 @@ $heading = apply_filters( 'woocommerce_product_additional_information_heading', 
 ?>
 
 <?php if ( $heading ) : ?>
-	<h2><?php echo esc_html( $heading ); ?></h2>
+    <h2><?php echo esc_html( $heading ); ?></h2>
 <?php endif; ?>
 
-<?php do_action( 'woocommerce_product_additional_information', $product ); ?>
+<div class="woocommerce-product-details__additional-information">
+
+    <ul class="product-additional-info">
+        <li>SKU: <?php echo $product->get_sku(); ?></li>
+        <li>Category: <?php echo wc_get_product_category_list( $product->get_id(), ', ', '', '' ); ?></li>
+        <li>Tags: <?php echo wc_get_product_tag_list( $product->get_id(), ', ', '', '' ); ?></li>
+        <li>
+            Share:
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url( get_permalink() ); ?>" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/shareArticle?url=<?php echo esc_url( get_permalink() ); ?>" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com/intent/tweet?url=<?php echo esc_url( get_permalink() ); ?>" target="_blank"><i class="fab fa-twitter"></i></a>
+        </li>
+    </ul>
+
+    <div class="heart">
+        <img src="additional-info-image-url" alt="likebutton">
+    </div>
+
+</div>
