@@ -46,7 +46,7 @@ if ( $related_products ) : ?>
 			<?php endforeach; ?>
 
 		<?php woocommerce_product_loop_end(); ?>
-
+				
 	</section>
 	<?php
 endif;

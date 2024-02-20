@@ -256,6 +256,8 @@ function custom_woocommerce_catalog_orderby( $options ) {
 
 /* ''''''''''''''SINGLE PAGE''''''''''''''''''' */
 
+/* plus/minus buttons */
+
 add_action( 'wp_footer', 'ts_quantity_plus_minus' );
 function ts_quantity_plus_minus() {
     if ( ! is_product() ) return;
@@ -291,4 +293,82 @@ function ts_quantity_plus_minus() {
         });
     </script>
     <?php
+}
+
+/* ''''''''''''''LOAD MORE''''''''''''''''' */
+
+add_filter( 'woocommerce_product_loop_end', 'bbloomer_related_products_load_more_button' );
+  
+function bbloomer_related_products_load_more_button( $html ) {
+ 
+   // ONLY TARGET THE RELATED PRODUCTS LOOP
+   if ( wc_get_loop_prop( 'name' ) === 'related' ) {
+    
+      // SHOW BUTTON
+        $html .= '<div class="view-more-wrapper">';
+        $html .= '<a class="button loadmore">View More</a>';
+        $html .= '</div>';
+
+ 
+      // TRIGGER AJAX 'loadmore' ACTION ON CLICK
+      // AND APPEND MORE RELATED PRODUCTS 
+      wc_enqueue_js( "
+         var page = 2;
+         var ajaxurl = '" . admin_url( 'admin-ajax.php' ) . "';
+         $('body').on('click', '.loadmore', function(evt) {
+            var data = {
+               'action': 'loadmore',
+               'page': page,
+               'product_id': " . get_queried_object_id() . ",
+            };
+            $.post(ajaxurl, data, function(response) {
+               if(response != '') {
+                  $('.related .products ').append(response);
+                  page++;
+               }
+            });
+         });
+      " );
+   }
+   return $html;
+}
+ 
+// DEFINE WHAT HAPPENS WHEN 'loadmore' ACTION TRIGGERS
+add_action( 'wp_ajax_nopriv_loadmore', 'bbloomer_related_products_load_more_event' );
+add_action( 'wp_ajax_loadmore', 'bbloomer_related_products_load_more_event' );
+ 
+function bbloomer_related_products_load_more_event() {
+ 
+   // GET PARAMETERS FROM POSTED DATA
+   $paged = $_POST['page'];
+   $product_id = $_POST['product_id'];
+ 
+   // DEFINE USEFUL QUERY ARGS:
+   // 1. CURRENT PRODUCT
+   $product = wc_get_product( $product_id );
+ 
+   // 2. PAGINATION AND SORTING
+   $args = array(
+      'posts_per_page' => 4,
+      'paged' => $paged,
+      'orderby' => 'id',
+      'order' => 'desc',
+   );
+ 
+   // 3. IDS TO EXCLUDE: ON LOAD MORE, WE DONT WANT THE FIRST 3 RELATED PRODUCTS AGAIN
+   // SO WE APPLY AN OFFSET TO GET THE "NEXT 3" PRODUCTS
+   $exclude = array_slice( array_map( 'absint', array_values( wc_get_related_products( $product->get_id(), -1 ) ) ), 0 , $args['posts_per_page'] * ( $paged - 1 ) );
+ 
+   // LETS CALCULATE AND SORT RELATED PRODUCTS
+   $related_products = array_filter( array_map( 'wc_get_product', wc_get_related_products( $product->get_id(), $args['posts_per_page'], $exclude + $product->get_upsell_ids() ) ), 'wc_products_array_filter_visible' );
+   $related_products = wc_products_array_orderby( $related_products, $args['orderby'], $args['order'] );
+ 
+   // LETS DISPLAY THEM
+   foreach ( $related_products as $related_product ) {
+      $post_object = get_post( $related_product->get_id() );
+      setup_postdata( $GLOBALS['post'] =& $post_object );
+      wc_get_template_part( 'content', 'product' );
+   }  
+   wp_die();
+ 
 }
