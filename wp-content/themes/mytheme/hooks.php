@@ -295,6 +295,17 @@ function ts_quantity_plus_minus() {
     <?php
 }
 
+function hide_footer_on_single_product_page() {
+    // CHECKS IF ITS PRODUCTSITE
+    if ( is_product() ) {
+        // HIDES USP ON PRODUCTSITE
+        echo '<style>.footer2 { display: none; }</style>';
+    }
+}
+add_action( 'wp_head', 'hide_footer_on_single_product_page' );
+
+
+
 /* ''''''''''''''LOAD MORE''''''''''''''''' */
 
 add_filter( 'woocommerce_product_loop_end', 'bbloomer_related_products_load_more_button' );
@@ -372,3 +383,6 @@ function bbloomer_related_products_load_more_event() {
    wp_die();
  
 }
+
+
+
