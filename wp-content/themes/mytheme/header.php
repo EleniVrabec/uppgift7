@@ -12,7 +12,7 @@
 <body>
     
     <?php wp_body_open(); ?>
-    <header>
+    <header class="<?php echo is_front_page() ? 'home-header' : ''; ?>">
 
         <div class="column-51">
         

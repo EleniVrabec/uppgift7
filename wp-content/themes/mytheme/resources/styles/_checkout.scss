@@ -142,14 +142,15 @@
             text-align: right;
             font-size: 14px;
           }
+          .variation {
+            display: none;
+          }
         }
         tfoot {
           .order-total td {
             color: $logo_color;
           }
           .woocommerce-shipping-totals td {
-            padding-bottom: 0;
-
             ul li {
               margin-bottom: 0;
 
@@ -177,6 +178,7 @@
           .order-total td {
             font-size: large;
             color: $logo_color;
+            padding-top: 0;
           }
         }
       }
