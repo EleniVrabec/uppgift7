@@ -311,6 +311,7 @@
                 text-decoration: none;
                 color: inherit;
                 border: none;
+                margin-right: 1%;
                 
               }
           }
@@ -329,5 +330,34 @@
           bottom: 10%; // Move the image 10% from the bottom
           /* Additional styling if needed */
       }
+  }
+}
+
+
+.woocommerce-product-details__additional-information {
+  ul.product-additional-info {
+    list-style: none;
+    padding: 0;
+    margin: 10px; /* Add a 10px margin to all sides */
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      .info-label {
+        width: 100px;
+        font-weight: bold;
+        margin-right: 10px;
+        display: inline-block;
+      }
+      .share-icons {
+        span.info-label {
+          margin-right: 10px;
+        }
+        i.fab.fa-facebook::before,
+        i.fab.fa-linkedin::before {
+          margin-right: 5%; // Add margin-right: 5% to facebook and linkedin icons
+        }
+      }
+    }
   }
 }

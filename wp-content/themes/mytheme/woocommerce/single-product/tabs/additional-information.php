@@ -21,13 +21,12 @@ $heading = apply_filters( 'woocommerce_product_additional_information_heading', 
 <?php endif; ?>
 
 <div class="woocommerce-product-details__additional-information">
-
     <ul class="product-additional-info">
-        <li>SKU: <?php echo $product->get_sku(); ?></li>
-        <li>Category: <?php echo wc_get_product_category_list( $product->get_id(), ', ', '', '' ); ?></li>
-        <li>Tags: <?php echo wc_get_product_tag_list( $product->get_id(), ', ', '', '' ); ?></li>
-        <li>
-            Share:
+        <li><span class="info-label">SKU</span>:          <?php echo $product->get_sku(); ?></li>
+        <li><span class="info-label">Category</span>:          <?php echo wc_get_product_category_list( $product->get_id(), ', ', '', '' ); ?></li>
+        <li><span class="info-label">Tags</span>:          <?php echo wc_get_product_tag_list( $product->get_id(), ', ', '', '' ); ?></li>
+        <li class="share-icons">
+            <span class="info-label">Share</span>:          
             <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url( get_permalink() ); ?>" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.linkedin.com/shareArticle?url=<?php echo esc_url( get_permalink() ); ?>" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://twitter.com/intent/tweet?url=<?php echo esc_url( get_permalink() ); ?>" target="_blank"><i class="fab fa-twitter"></i></a>
