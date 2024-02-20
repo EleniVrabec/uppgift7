@@ -103,14 +103,18 @@
         .variations {
           tbody {
             tr {
+                display: flex;
+                flex-direction: column;
+
               th.label {
                 color: $secondary_text_color;
                 font-weight: $font-weight-normal;
                 min-width: 110px;
+                text-align: left;
               }
               td.woo-variation-items-wrapper {
                 display: flex;
-                justify-content: center;
+                justify-content: left;
                 a {
                   margin: auto 15px;
                   text-decoration: none;
@@ -188,6 +192,7 @@
       }
     }
     .wc-tabs-wrapper {
+        margin-top: 5%;
       border-top: 1px solid $secondary_text_color;
       /*   margin-left: -10%;
            margin-right: -10%; */
@@ -334,10 +339,13 @@
 
 
 .woocommerce-product-details__additional-information {
+    border-top: 1px solid $secondary_text_color;
+    margin-top: 5%;
+    padding-top: 10px;
   ul.product-additional-info {
     list-style: none;
     padding: 0;
-    margin: 10px; 
+   /*  margin: 10px;  */
     li {
       display: flex;
       align-items: center;
