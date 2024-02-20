@@ -406,4 +406,10 @@ function bbloomer_related_products_load_more_event() {
 }
 
 
+// --- COPYRIGHT ----
+function modify_copyright_year($year) {
+    // CHANGE YEAR TO 2022
+    return '2022';
+}
 
+add_filter('copyright_year', 'modify_copyright_year');
