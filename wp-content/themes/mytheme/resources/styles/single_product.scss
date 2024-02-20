@@ -315,13 +315,19 @@
               }
           }
       }
-      
-      // Target the .heart class
-      .heart {
-          // Write your SCSS styles for the .heart class here
-          img {
-              
-          }
+  }
+}
+
+
+.custom-additional-information {
+  .heart {
+      position: relative; // Ensure positioning context
+      img {
+          position: absolute; // Position the image relative to its container
+          top: auto; // Reset top position
+          right: 20%; // Move the image 20% from the right side
+          bottom: 10%; // Move the image 10% from the bottom
+          /* Additional styling if needed */
       }
   }
 }

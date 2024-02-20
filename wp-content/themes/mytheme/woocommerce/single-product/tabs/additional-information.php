@@ -34,8 +34,23 @@ $heading = apply_filters( 'woocommerce_product_additional_information_heading', 
         </li>
     </ul>
 
+    <?php
+    // DEFINES THE IMAGE TITLE
+    $heart_image_title = "Heart";
+
+    // GETS THE ATTACHMENT ID
+    global $wpdb;
+    $heart_image_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type = 'attachment'", $heart_image_title ) );
+    ?>
+
     <div class="heart">
-        <img src="additional-info-image-url" alt="likebutton">
+        <?php
+        // SHOWS THE HEART IMAGE IF IT EXISTS
+        if ($heart_image_id) {
+            
+            echo wp_get_attachment_image($heart_image_id, 'thumbnail', false, array('alt' => 'Like Button'));
+        }
+        ?>
     </div>
 
 </div>
