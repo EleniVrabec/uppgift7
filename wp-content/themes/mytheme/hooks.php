@@ -40,10 +40,10 @@ add_action( 'woocommerce_after_shop_loop_item', 'remove_add_to_cart_buttons', 1 
       }
     }
 
-$filter_image_title = "Filter"; // Titel för din filterbild från media library
-$grid_image_title = "Gridfilter"; // Titel för din gridfilterbild från media library
-$list_image_title = "Listview"; // Titel för din listvybild från media library
-$line_image_title = "Line"; // Titel för din linebild från media library
+$filter_image_title = "Filter"; 
+$grid_image_title = "Gridfilter"; 
+$list_image_title = "Listview"; 
+$line_image_title = "Line"; 
 
 // Hämta bildernas ID baserat på deras titlar
 global $wpdb;
@@ -72,28 +72,28 @@ function custom_wrapper_open() {
     // Lägg till ikon för filter från media library
     echo '<div class="filter-icon">';
     if ( $filter_image_id ) {
-        echo wp_get_attachment_image( $filter_image_id, 'full', false, array( 'alt' => 'Filter Image' ) ); // Använd din egen filterbild från media library
+        echo wp_get_attachment_image( $filter_image_id, 'full', false, array( 'alt' => 'Filter Image' ) ); 
     }
     echo '</div>';
 
     // Lägg till ikon för gridfilter från media library
     echo '<div class="gridfilter-icon">';
     if ( $grid_image_id ) {
-        echo wp_get_attachment_image( $grid_image_id, 'full', false, array( 'alt' => 'Grid Filter Image' ) ); // Använd din egen gridfilterbild från media library
+        echo wp_get_attachment_image( $grid_image_id, 'full', false, array( 'alt' => 'Grid Filter Image' ) ); 
     }
     echo '</div>';
 
     // Lägg till ikon för listvy från media library
     echo '<div class="listview-icon">';
     if ( $list_image_id ) {
-        echo wp_get_attachment_image( $list_image_id, 'full', false, array( 'alt' => 'List View Image' ) ); // Använd din egen listvybild från media library
+        echo wp_get_attachment_image( $list_image_id, 'full', false, array( 'alt' => 'List View Image' ) ); 
     }
     echo '</div>';
 
     // Lägg till ikon för line från media library
     echo '<div class="line-icon">';
     if ( $line_image_id ) {
-        echo wp_get_attachment_image( $line_image_id, 'full', false, array( 'alt' => 'Line Image' ) ); // Använd din egen linebild från media library
+        echo wp_get_attachment_image( $line_image_id, 'full', false, array( 'alt' => 'Line Image' ) ); 
     }
     echo '</div>';
 }
@@ -128,9 +128,30 @@ function change_next_pagination_text( $args ) {
 }
 
 
+// ADDS ADDITIONAL INFO-TAB AFTER CART-BTN
+add_action( 'woocommerce_single_product_summary', 'custom_additional_information_after_add_to_cart', 30 );
+
+function custom_additional_information_after_add_to_cart() {
+    global $product;
+    ob_start();
+    include get_theme_file_path( 'woocommerce/single-product/tabs/additional-information.php' );
+    $additional_info_content = ob_get_clean();
+    echo '<div class="custom-additional-information">' . $additional_info_content . '</div>';
+
+}
+
+
+
+
+
+
 // remove the sidebar and search in the shop page
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+
+
+
+
 
 
 /* *******CART******* */

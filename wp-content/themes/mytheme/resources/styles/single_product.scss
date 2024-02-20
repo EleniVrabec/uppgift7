@@ -30,6 +30,8 @@
     padding: 10%;
     padding-top: 5%;
     padding-right: 10%;
+
+    
     /* margin: $general-margin; */
     .woo-variation-product-gallery {
       width: 50%;
@@ -282,5 +284,44 @@
         }
       }
     }
+  }
+}
+
+// Target the .custom-additional-information class
+.custom-additional-information {
+  // Target the h2 element
+  h2 {
+      display: none; // Hide the h2 element
+  }
+  
+  // Target the .woocommerce-product-details__additional-information class
+  .woocommerce-product-details__additional-information {
+    color: #9F9F9F; // Set the text color to grey
+    
+    
+    ul.product-additional-info li:last-child a i {
+      color: black; // Set the color of the icons to black
+  }
+      
+      ul.product-additional-info {
+        list-style-type: none;
+
+          li {
+              a {
+                text-decoration: none;
+                color: inherit;
+                border: none;
+                
+              }
+          }
+      }
+      
+      // Target the .heart class
+      .heart {
+          // Write your SCSS styles for the .heart class here
+          img {
+              
+          }
+      }
   }
 }

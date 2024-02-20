@@ -54,3 +54,4 @@ function hide_hero_container_on_homepage() {
         echo '<style>.hero-container { display: none; }</style>';
     }
 }
+
