@@ -74,7 +74,7 @@
     </section>
     <div class="footer-border"></div>
     <div class="copyright">
-        <p>&copy; <?php echo date("Y"); ?> All rights reserved</p>
+    <p>&copy; <?php echo apply_filters('copyright_year', date("Y")); ?> Meubel House, All rights reserved</p>
     </div>
 </footer>
 
