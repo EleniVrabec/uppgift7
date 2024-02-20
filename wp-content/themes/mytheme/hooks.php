@@ -251,3 +251,44 @@ function custom_woocommerce_catalog_orderby( $options ) {
     $options['price-desc'] = 'Price: high to low';
     return $options;
 }
+
+
+
+/* ''''''''''''''SINGLE PAGE''''''''''''''''''' */
+
+add_action( 'wp_footer', 'ts_quantity_plus_minus' );
+function ts_quantity_plus_minus() {
+    if ( ! is_product() ) return;
+    ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function($){   
+            $('form.cart').on('click', 'button.plus, button.minus', function() {
+                let qty = $( this ).closest( 'form.cart' ).find( '.qty' );
+                let val   = parseFloat(qty.val());
+                let max = parseFloat(qty.attr( 'max' ));
+                let min = parseFloat(qty.attr( 'min' ));
+                let step = parseFloat(qty.attr( 'step' ));
+                
+                if ( $( this ).is( '.plus' ) ) {
+                    if ( max && ( max <= val ) ) {
+                        qty.val( max );
+                    } else {
+                        qty.val( val + step );
+                    }
+                } else {
+                    if ( min && ( min >= val ) ) {
+                        qty.val( min );
+                    } else if ( val > 1 ) {
+                        qty.val( val - step );
+                    }
+                }
+                
+            });
+            
+            // Modify the quantity input field to include plus and minus buttons
+            $('form.cart .quantity').prepend('<button type="button" class="minus" >-</button>');
+            $('form.cart .quantity').append('<button type="button" class="plus" >+</button>');
+        });
+    </script>
+    <?php
+}

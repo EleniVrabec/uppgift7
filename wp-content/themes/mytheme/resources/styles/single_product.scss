@@ -1,7 +1,11 @@
 .site-main{
-    margin: $general-margin;
+    width: 100%;
+
+   /*  margin: $general-margin; */
     margin-top: 2%;
     .woocommerce-breadcrumb{
+       /*  margin: $general-margin; */
+       padding-left: 10%;
         a{
             text-decoration: none;
             color: $secondary_text_color;
@@ -18,7 +22,16 @@
         }
         
     }
+    .woocommerce-notices-wrapper{
+        width: 34%;
+        margin-left: 10%;
+    }
     .product{
+        max-width:85%;
+        padding: 10%;
+        padding-top: 5%;
+        padding-right: 10%;
+        /* margin: $general-margin; */
         .woo-variation-product-gallery{
             width: 50%;
             height: 70vh;
@@ -45,9 +58,13 @@
             width: 50%;
         }
         .entry-summary{
-            margin-left: 3%;
-            width: 49%;
+          /*   margin-left: 3%; */
+         
+            width: 40%;
+            margin-right: 10%;
+
             height: 70vh;
+           
             .rating{
                 height: 24px;
                 width: calc(24px * 5);
@@ -67,18 +84,24 @@
                 
     
                }
+            .woocommerce-product-details__short-description p{
+                width: 74%;
+            }
             .product_title {
+                width: 100%;
                 font-weight: $font-weight-normal;
                 margin-bottom: 0;
             }
             
             .price{
+                width: 100%;
                 margin-top: 10px;
                 color: $secondary_text_color;
                 font-weight: $font-weight-normal;
                 font-size: 21px;
             }
             .variations_form {
+                width: 100%;
                 .variations{
                     tbody{
                         tr{
@@ -107,16 +130,21 @@
                 }
                /*  height: 10vh; */
                .single_variation_wrap{
+                width: 100%;
                 .woocommerce-variation-add-to-cart {
                 display: flex;
                 justify-content: left;
                 flex-direction: row;
                 margin-top: 10px;
                 .input-text{
+                   text-align: center;
                     padding: 10px;
-                    margin-right: 10px;
+                    
                     border-radius:5px;
-                    border: $border;
+                   
+                    border: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: textfield;
 
                 }
                 .single_add_to_cart_button {
@@ -124,6 +152,26 @@
                     border-radius:8px;
                     border: $border;
                     background-color: transparent;
+                    cursor: pointer;
+                }
+                .quantity{
+                    border: 1px solid rgba(0, 0, 0, 0.568);
+                    margin-right: 10px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    .minus, .plus{
+                        
+                        cursor: pointer;
+                        border: none;
+                        background-color: transparent;
+                        
+                    }
+                    .minus{
+                        padding-left: 10px;
+                    }
+                    .plus{
+                        padding-right: 10px;
+                    }
                 }
                 }
                 
@@ -136,12 +184,10 @@
          /*   margin-left: -10%;
            margin-right: -10%; */
            .extra-pictures{
-           // margin: $general-margin;
-         /*   margin-left: 10%;
-           margin-right: 10%; */
+            margin-top: 5%;
             height: 40vh;
             width: 100%;
-          
+            
             img{
                 background-color: $yellow_bckg;
                 border-radius: 10px;
@@ -181,9 +227,44 @@
                 cursor: pointer;
             }
             div.wc-tab{
-                margin-left: 15%;
-                margin-right: 15%;
+                margin-left: 8%;
+                margin-right: 10%;
                 color: $secondary_text_color;
+            }
+        }
+        .related {
+            margin-top: 5%;
+            h2{
+                text-align: center;
+            }
+            ul{
+                li{
+                    .woocommerce-loop-product__link{
+                        h2{
+                            text-align: left;
+                            font-size: 20px;
+                           
+                            font-size: 16px;
+                            font-weight: 400;
+                            line-height: 24px;
+                            letter-spacing: 0em;
+                           
+
+                        }
+                        .price{
+                            margin-top: 20px;  
+                            font-size: 24px;
+                            font-weight: 500;
+                            line-height: 36px;
+                            letter-spacing: 0em;
+                            text-align: left;
+
+                        }
+                    }
+                    .ajax_add_to_cart{
+                        display: none;
+                    }
+                }
             }
         }
     }
