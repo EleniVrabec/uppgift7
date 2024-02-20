@@ -31,6 +31,7 @@
         margin-top: 0;
         p{
            font-family: Poppins;
+           
          i{
             padding-bottom: 20px;
             padding-top: 20px;
@@ -66,7 +67,7 @@ form {
 		width: 100%;
 		margin-bottom: 10px;
 		border: none;
-		
+		height: 75px;
 		border-radius: 0;
 		width: 100%;
 		border: 1px solid $secondary_text_color;
@@ -91,3 +92,15 @@ form {
 }
     }
 }
+
+
+.contact-form form input[name="name"] {
+    height: 45px;
+}
+.contact-form form input[name="email"] {
+    height: 45px;
+}
+.contact-form form input[name="interested_in"] {
+    height: 45px;
+}
+
