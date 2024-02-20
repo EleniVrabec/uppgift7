@@ -287,20 +287,19 @@
   }
 }
 
-// Target the .custom-additional-information class
+
 .custom-additional-information {
-  // Target the h2 element
   h2 {
-      display: none; // Hide the h2 element
+      display: none; 
   }
   
-  // Target the .woocommerce-product-details__additional-information class
+  
   .woocommerce-product-details__additional-information {
-    color: #9F9F9F; // Set the text color to grey
+    color: #9F9F9F; 
     
     
     ul.product-additional-info li:last-child a i {
-      color: black; // Set the color of the icons to black
+      color: black; 
   }
       
       ul.product-additional-info {
@@ -322,13 +321,13 @@
 
 .custom-additional-information {
   .heart {
-      position: relative; // Ensure positioning context
+      position: relative; 
       img {
-          position: absolute; // Position the image relative to its container
-          top: auto; // Reset top position
-          right: 20%; // Move the image 20% from the right side
-          bottom: 10%; // Move the image 10% from the bottom
-          /* Additional styling if needed */
+          position: absolute; 
+          top: auto; 
+          right: 20%; 
+          bottom: 10%; 
+          
       }
   }
 }
@@ -338,7 +337,7 @@
   ul.product-additional-info {
     list-style: none;
     padding: 0;
-    margin: 10px; /* Add a 10px margin to all sides */
+    margin: 10px; 
     li {
       display: flex;
       align-items: center;
@@ -355,7 +354,7 @@
         }
         i.fab.fa-facebook::before,
         i.fab.fa-linkedin::before {
-          margin-right: 5%; // Add margin-right: 5% to facebook and linkedin icons
+          margin-right: 5%; 
         }
       }
     }
