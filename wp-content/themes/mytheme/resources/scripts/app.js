@@ -46,3 +46,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+
+// MAKES ACTIVE TAB TO THE COLOR BLACK
+document.addEventListener("DOMContentLoaded", function () {
+  const tabs = document.querySelectorAll(".woocommerce-tabs .tabs li");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", function () {
+      tabs.forEach((tab) => {
+        tab.classList.remove("active");
+      });
+
+      this.classList.add("active");
+      const style = document.createElement("style");
+      style.textContent = `
+        .woocommerce-tabs .tabs li.active a {
+          color: black !important;
+        }
+      `;
+      document.head.appendChild(style);
+    });
+  });
+});
