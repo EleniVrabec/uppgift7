@@ -84,6 +84,19 @@ function mytheme_add_settings_init() {
             "option_type" => "time"
         )
     );
+
+    
+// Funktion för att rendera öppettidsinställningsfältet
+function mytheme_section_setting_opening_hours() {
+    $option_name = "store_opening_hours";
+    $option_value = get_option($option_name);
+
+    echo '<input type="time" id="monday_open" name="' . $option_name . '[monday_open]" value="' . esc_attr($option_value['monday_open']) . '"> - ';
+    echo '<input type="time" id="monday_close" name="' . $option_name . '[monday_close]" value="' . esc_attr($option_value['monday_close']) . '"><br>';
+    // Upprepa för andra dagar...
+}
+
+
     //------------------
     // open hours
     //------------------
