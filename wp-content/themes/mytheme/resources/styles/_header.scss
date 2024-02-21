@@ -42,7 +42,7 @@
         }
 
         &:hover {
-          color: blue;
+          transform: scale(1.1);
         }
       }
     }
@@ -78,7 +78,8 @@
 }
 
 #primary-menu.menu li a:hover {
-  color: blue;
+  transform: scale(1.1); /* Scale the element by 1.1 on hover */
+  /* Additional styles */
 }
 
 @media screen and (max-width: 2012px) {
