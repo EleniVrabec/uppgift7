@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     billingAddressInput.value = ""; // Set placeholder to empty string
   }
 
+  /* 
+
   document.addEventListener("click", function (event) {
     var clickedItem = event.target.closest("li.wc_payment_method");
     if (clickedItem) {
@@ -23,4 +25,5 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+  */
 });

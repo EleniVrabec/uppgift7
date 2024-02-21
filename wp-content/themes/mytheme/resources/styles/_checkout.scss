@@ -193,7 +193,7 @@
         li {
           color: $secondary_text_color;
 
-          label[for="payment_method_cod"] {
+          label[for="payment_method_bacs"] {
             color: black;
           }
           input[type="radio"] {
@@ -228,7 +228,7 @@
 
           .payment-off {
             appearance: none;
-            -webkit-appearance: none; /* For Safari and older versions of Chrome */
+            -webkit-appearance: none;
             height: 12px;
             width: 12px;
             border-radius: 50%;
