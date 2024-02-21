@@ -40,26 +40,27 @@ add_action( 'woocommerce_after_shop_loop_item', 'remove_add_to_cart_buttons', 1 
       }
     }
 
+// SETTING IMAGE TITLES
 $filter_image_title = "Filter"; 
 $grid_image_title = "Gridfilter"; 
 $list_image_title = "Listview"; 
 $line_image_title = "Line"; 
 
-// Hämta bildernas ID baserat på deras titlar
+// GETTING IMAGE IDs BASED ON THEIR TITLES
 global $wpdb;
 $filter_image_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type = 'attachment'", $filter_image_title ) );
 $grid_image_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type = 'attachment'", $grid_image_title ) );
 $list_image_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type = 'attachment'", $list_image_title ) );
 $line_image_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type = 'attachment'", $line_image_title ) );
 
-// Hook för att öppna anpassad wrapper för produktsidan
+
 add_action( 'woocommerce_before_shop_loop', 'custom_wrapper_open', 19 );
 function custom_wrapper_open() {
     global $filter_image_id, $grid_image_id, $list_image_id, $line_image_id;
 
     echo '<div class="custom-wrapper">';
     
-    // Visa formulär för antal produkter att visa
+    // SHOW PRODUCTS PER PAGE FORM
     ?>
     <form class="custom-products-per-page" action="" method="GET">
         <div class="custom-products-per-page-wrapper">
@@ -69,28 +70,28 @@ function custom_wrapper_open() {
     </form>
     <?php
     
-    // Lägg till ikon för filter från media library
+    // FILTER ICON FROM MEDIA LIBRARY
     echo '<div class="filter-icon">';
     if ( $filter_image_id ) {
         echo wp_get_attachment_image( $filter_image_id, 'full', false, array( 'alt' => 'Filter Image' ) ); 
     }
     echo '</div>';
 
-    // Lägg till ikon för gridfilter från media library
+    // GRIDFILTER ICON FROM MEDIA LIBRARY
     echo '<div class="gridfilter-icon">';
     if ( $grid_image_id ) {
         echo wp_get_attachment_image( $grid_image_id, 'full', false, array( 'alt' => 'Grid Filter Image' ) ); 
     }
     echo '</div>';
 
-    // Lägg till ikon för listvy från media library
+    // LISTVIEW ICON FROM MEDIA LIBRARY
     echo '<div class="listview-icon">';
     if ( $list_image_id ) {
         echo wp_get_attachment_image( $list_image_id, 'full', false, array( 'alt' => 'List View Image' ) ); 
     }
     echo '</div>';
 
-    // Lägg till ikon för line från media library
+    // LINE ICON FROM MEDIA LIBRARY
     echo '<div class="line-icon">';
     if ( $line_image_id ) {
         echo wp_get_attachment_image( $line_image_id, 'full', false, array( 'alt' => 'Line Image' ) ); 
@@ -98,7 +99,7 @@ function custom_wrapper_open() {
     echo '</div>';
 }
 
-// Hook för att stänga anpassad wrapper för produktsidan
+// CLOSES CUSTOM WRAPPER FOR SHOP PAGE
 add_action( 'woocommerce_before_shop_loop', 'custom_wrapper_close', 31 );
 function custom_wrapper_close() {
     echo '</div>'; // Stäng den anpassade wrapper
@@ -188,11 +189,10 @@ function woocommerce_button_proceed_to_checkout() {
 
 
 
-// Funktion för att lägga till bilder från media library till WordPress-meny
 function add_menu_icons($items, $args) {
-    // Kontrollera om det är huvudmenyn och om vi är i adminläge
+    // ADMINMODE?
     if ($args->theme_location == 'cart-meny' && !is_admin()) {
-        // Ersätt menytext med bilder från media library
+        // CHANGES MENU CHOICES TO PICS
         $items = str_replace('My account', get_menu_image_html('user'), $items);
         $items = str_replace('About', get_menu_image_html('search'), $items);
         $items = str_replace('Checkout', get_menu_image_html('liked'), $items);
@@ -201,24 +201,22 @@ function add_menu_icons($items, $args) {
     return $items;
 }
 
-// Lägg till hook för att köra funktionen
 add_filter('wp_nav_menu_items', 'add_menu_icons', 10, 2);
 
-// Funktion för att hämta HTML för bild från media library baserat på titel
+// GETS IMAGE FROM LIBRARY BASED ON TITLE
 function get_menu_image_html($title) {
-    // Hämta ID för bild baserat på titel
+    // GETS IMAGE ID FROM LIBRARY BASED ON TITLE
     $image_id = attachment_url_to_postid(get_menu_image_url($title));
 
-    // Kontrollera om det finns en giltig bild
     if ($image_id) {
-        // Hämta bildens HTML
+        // GETS THE HTML OF THE IMAGE
         $image_html = wp_get_attachment_image($image_id, 'full', false, array('class' => 'menu-image'));
         return $image_html;
     }
-    return ''; // Returnera tom sträng om ingen bild hittades
+    return ''; 
 }
 
-// Funktion för att hämta URL till bild från media library baserat på titel
+// GETS URL TO IMAGE FROM MEDIA LIBRARY BASED ON TITLE
 function get_menu_image_url($title) {
     $args = array(
         'post_type'      => 'attachment',
@@ -234,7 +232,7 @@ function get_menu_image_url($title) {
         return wp_get_attachment_url($attachments[0]->ID);
     }
 
-    return ''; // Returnera tom sträng om ingen bild hittades
+    return '';
 }
 
 
@@ -243,7 +241,7 @@ function get_menu_image_url($title) {
 // Remove default WooCommerce action for product rating
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 
-// Add custom function to display your content in place of the product rating
+// CUSTOM FUNCTION TO DISPLAY CONTENT IN PLACE OF THE PRODUCT RATING
 add_action( 'woocommerce_single_product_summary', 'mytheme_woocommerce_single_product_summary', 10 );
 
 function mytheme_woocommerce_single_product_summary(){
@@ -264,6 +262,7 @@ function mytheme_woocommerce_single_product_summary(){
 
 add_filter( 'woocommerce_catalog_orderby', 'custom_woocommerce_catalog_orderby' );
 function custom_woocommerce_catalog_orderby( $options ) {
+    // MODIFY / ADD ORDERBY OPTIONS
     $options['menu_order'] = 'Default';
     $options['popularity'] = 'Popularity';
     $options['rating'] = 'Average rating';
@@ -281,17 +280,21 @@ function custom_woocommerce_catalog_orderby( $options ) {
 
 add_action( 'wp_footer', 'ts_quantity_plus_minus' );
 function ts_quantity_plus_minus() {
+    // CHECK IF THE CURRENT PAGE IS A PRODUCT PAGE, OTHERWISE, DO NOTHING
     if ( ! is_product() ) return;
     ?>
     <script type="text/javascript">
-        jQuery(document).ready(function($){   
+        jQuery(document).ready(function($){  
+            // ADD EVENT LISTENERS TO PLUS AND MINUS BUTTONS INSIDE THE CART FORM 
             $('form.cart').on('click', 'button.plus, button.minus', function() {
+                // RETRIEVE THE QUANTITY INPUT FIELD
                 let qty = $( this ).closest( 'form.cart' ).find( '.qty' );
                 let val   = parseFloat(qty.val());
                 let max = parseFloat(qty.attr( 'max' ));
                 let min = parseFloat(qty.attr( 'min' ));
                 let step = parseFloat(qty.attr( 'step' ));
                 
+                // INCREMENT / DECREMENT QUANTITY BASED ON BUTTON
                 if ( $( this ).is( '.plus' ) ) {
                     if ( max && ( max <= val ) ) {
                         qty.val( max );
@@ -308,7 +311,7 @@ function ts_quantity_plus_minus() {
                 
             });
             
-            // Modify the quantity input field to include plus and minus buttons
+            // PLUS AND MINUS BUTTONS
             $('form.cart .quantity').prepend('<button type="button" class="minus" >-</button>');
             $('form.cart .quantity').append('<button type="button" class="plus" >+</button>');
         });

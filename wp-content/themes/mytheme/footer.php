@@ -1,5 +1,6 @@
 <footer>
     <?php if ( ! is_front_page() ) : ?>
+        <!-- FOOTER USP -->
         <section class="footer2">
             <div class="column">
                 <h1>Free Delivery</h1>
@@ -21,13 +22,13 @@
     <section class="container">
         <div class="footercolumn1">
             <?php
-            // Hämta butiksadress, stad, postnummer och land
+            // GET STORE ADDRESS, CITY, POSTCODE, AND COUNTRY
             $store_address = get_option('woocommerce_store_address');
             $store_city = get_option('woocommerce_store_city');
             $store_postcode = get_option('woocommerce_store_postcode');
             $store_country = get_option('woocommerce_store_country');
             
-            // Skriv ut adressen med korrekt formatering
+            // DISPLAY ADDRESS WITH CORRECT SPACING
             echo esc_html($store_address) . '';
             echo esc_html($store_city) . ',<br>';
             echo 'FL ' . $store_postcode . ' USA';
@@ -36,6 +37,7 @@
         <div class="column">
             <span class="category">Links</span>
             <?php
+            // DISPLAY PRIMARY MENU IN FOOTER
             $menu_about_us = array(
                 'theme_location' => 'huvudmeny',
                 'menu_id' => 'footermeny',
@@ -50,6 +52,7 @@
             <div class="column-51">
     
                 <?php 
+                // DISPLAY FOOTER MENU 2
                 $menu = array(
                     'menu' => 'Footer', 
                     'menu_id' => 'footermeny',

@@ -39,14 +39,14 @@ get_template_part('hero-section');
     $sat_to_sun_open = '09:00';
     $sat_to_sun_close = '21:00';
 
-    // Hämta dagens dag
+    // GETS CURRENT DAY
     $current_day = strtolower(date('l')); // konvertera till gemener
 
-    // Formatera öppettider för vardagar och helger
+    // FORMATS OPENING HOURS FOR WEEK AND WEEKENDS
     $mon_to_fri_hours = 'Monday-Friday: ' . $mon_to_fri_open . '-' . $mon_to_fri_close;
     $sat_to_sun_hours = 'Saturday-Sunday: ' . $sat_to_sun_open . '-' . $sat_to_sun_close;
 
-    // Skriv ut öppettiderna med ikon för svart klocka
+    // SHOWS THE OPENING HOURS WITH A BLACK ICON
     echo '<i class="fas fa-clock">   Working Time</i> '. '<br>' . '<label>' . $mon_to_fri_hours . '<br>';
     echo  $sat_to_sun_hours . '<label>';
                 ?>

@@ -15,7 +15,7 @@
     <header class="<?php echo is_front_page() ? 'home-header' : ''; ?>">
 
         <div class="column-51">
-        
+            <!-- SHOWS THE PRIMARY MENU -->
             <?php 
             $menu = array(
                 'theme_location' => 'huvudmeny',
@@ -28,7 +28,7 @@
           <!--   <button class="hamburger">&#9776;</button>      -->
         </div>
         <div class="column-51">
-        
+            <!-- SHOWS THE FOOTER MENU -->
             <?php 
             $menu = array(
                 'theme_location' => 'cart-meny',

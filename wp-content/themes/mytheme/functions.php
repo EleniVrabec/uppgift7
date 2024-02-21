@@ -27,6 +27,7 @@ function enqueue_woocommerce_scripts() {
 
 add_filter('woocommerce_package_rates', 'restrict_shipping_options', 10, 2);
 
+// RESTRICT SHIPPING OPTIONS
 function restrict_shipping_options($rates, $package) {
     
     $free_shipping_available = false;
@@ -50,6 +51,7 @@ function restrict_shipping_options($rates, $package) {
 
 add_action('wp_head', 'hide_hero_container_on_homepage');
 
+// HIDE HERO CONTAINER ON HOMEPAGE
 function hide_hero_container_on_homepage() {
     if (is_front_page()) {
         echo '<style>.hero-container { display: none; }</style>';
