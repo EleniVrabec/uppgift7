@@ -23,9 +23,9 @@ $image_url = $uploads_base_url . $image_path;
     <h1 class="woocommerce-products-header__title page-title">
         <?php
         if ( is_shop() ) {
-            echo 'Shop'; // Display "Shop" as the title for the shop page
+            echo 'Shop'; 
         } else {
-            the_title(); // Display the page title for other pages
+            the_title(); 
         }
         ?>
     </h1>

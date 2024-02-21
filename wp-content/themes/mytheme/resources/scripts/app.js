@@ -1,4 +1,4 @@
-import "./test";
+
 import "./checkout";
 
 document.addEventListener("DOMContentLoaded", function () {

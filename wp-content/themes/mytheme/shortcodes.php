@@ -1,37 +1,8 @@
 <?php
-   /*  // 1. Lägg till shortcodes.php i init.php
-    // 2. Lägg till kortkoden i en sida och använd "[mytheme_box]" som kortkod
-    // 3. Kan använda shortcode för att implementera funktioner som swish, klana, etc.
 
-    // Funktion för att rita en ruta med kortkoden [mytheme_box] */
-    //function mytheme_shortcode_draw_box($attr) {
-       /*  // När kortkoden [mytheme_box] används i en sida, kommer första värdet att vara standardvärdet
-        // Om parametern [$attr] inte är specificerad används innehållet i denna array som standard
-        // Om parametern [$attr] är specificerad, används den på följande sätt: [mytheme_box color="lime" size="5"]
-        // Då används användarens specificerade innehåll */
-      //  $attr = shortcode_atts(
-          //  array(
-             //   "color" => "green",
-             //   "size" => 1
-          //  ),
-           // $attr,
-          //  "mytheme_box"
-       // );
-
-       /*  // Generera HTML för en ruta med specifik färg och storlek */
-       // return '<div style="width:100px; height:100px; background:' . $attr["color"] . '"></div>';
-  //  }
-
-  /*   // Registrera kortkoden med namnet [mytheme_box] och koppla den till funktionen mytheme_shortcode_draw_box */
-   // add_shortcode("mytheme_box", "mytheme_shortcode_draw_box");
-    
-   // shortcodes.php
 
 function mytheme_contact_form_shortcode() {
-    ob_start(); /* // Starta outputbuffring - ob_start() är en PHP-funktion
-     som startar en outputbuffert. 
-     En outputbuffert används för att fånga allt utskrivet innehåll 
-    och hålla det i minnet utan att skicka det direkt till webbläsaren. */
+    ob_start(); 
     ?>
 
 <form id="contact-form" action="" method="post">
