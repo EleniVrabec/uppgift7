@@ -28,10 +28,10 @@ get_template_part('hero-section');
                 $store_email = get_option('store_email');
 
                 if (!empty($store_address)) {
-                    echo '<i class="fas fa-map-marker-alt">   Address</i>    ' . '<br>' . esc_html($store_address) . '<br>';
+                    echo '<i class="fas fa-map-marker-alt">   Address</i>    ' . '<br>' . '<label>' . esc_html($store_address) . '</label>' . '<br>';
                 }
                 if (!empty($store_phone)) {
-                    echo '<i class="fas fa-phone">   Phone</i>    ' . '<br>' . esc_html($store_phone) . '<br>';
+                    echo '<i class="fas fa-phone">   Phone</i>    ' . '<br>' . '<label>' . esc_html($store_phone) . '</label>' . '<br>';
                 }
                // Definiera öppettiderna
     $mon_to_fri_open = '09:00';
@@ -47,8 +47,8 @@ get_template_part('hero-section');
     $sat_to_sun_hours = 'Saturday-Sunday: ' . $sat_to_sun_open . '-' . $sat_to_sun_close;
 
     // Skriv ut öppettiderna med ikon för svart klocka
-    echo '<i class="fas fa-clock">   Working Time</i> '. '<br>' . $mon_to_fri_hours . '<br>';
-    echo  $sat_to_sun_hours;
+    echo '<i class="fas fa-clock">   Working Time</i> '. '<br>' . '<label>' . $mon_to_fri_hours . '<br>';
+    echo  $sat_to_sun_hours . '<label>';
                 ?>
             </p>
 

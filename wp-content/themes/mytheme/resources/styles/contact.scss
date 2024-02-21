@@ -1,149 +1,147 @@
-.content{
-    .contact-title{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        h1{
-            text-align: center;
-        }
-        p{
-            width: 50%;
-            text-align: center;
-            align-self: center;
-            color: $secondary_text_color;
-        }
-    }
-    .contact-main{
-        width: 95%;
-        height: calc(100vh - 5%);
-        margin-top: 5%;
-        /* margin-left: 15%; */
-        display: flex;
-        justify-content: space-between;
-.contact-info{
-    margin-left: 20%;
+.content {
+  .contact-title {
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    justify-content:flex-start;
-    width: 25%;
-    align-items: first baseline;
-    height: 537px;
-    .column{
+    h1 {
+      text-align: center;
+    }
+    p {
+      width: 50%;
+      text-align: center;
+      align-self: center;
+      color: $secondary_text_color;
+    }
+  }
+  .contact-main {
+    width: 95%;
+    height: calc(100vh - 5%);
+    margin-top: 5%;
+    /* margin-left: 15%; */
+    display: flex;
+    justify-content: space-between;
+    .contact-info {
+      margin-left: 20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 37%;
+      align-items: first baseline;
+      height: 537px;
+      .column {
         margin-top: 0;
-        p{
-           font-family: Poppins;
-           
-         i{
-            padding-bottom: 20px;
+
+        p {
+          font-family: Poppins;
+
+          label {
+            padding-left: 40px;
+            display: block;
+          }
+
+          i {
+            display: flex;
+            flex-direction: row;
             padding-top: 20px;
             /* font-family: Poppins; */
-            &::before{
-               /*  font-family: unset; */
-                padding-right: 30px;
-               }
-         } 
+            &::before {
+              /*  font-family: unset; */
+              padding-right: 20px;
+            }
+          }
         }
-    }
-}
-
-.contact-form form input::placeholder {
-    padding-left: 3%; 
-}
-
-.contact-form{
-    width: 40%;
-form {
-    label{
-        margin-bottom: 20px;
-    }
-	max-width: 100%; 
-    
-	margin: 0 auto;
-    
-	input {
-        
-		display: block;
-		width: 100%;
-		margin-bottom: 20px;
-		border: 1px solid $secondary_text_color;
-        background:transparent;
-		border-radius: 5px;
-		padding: 10px;
-        font-size: 16px;
-        line-height: 24px;
-        font-family: Poppins;
-        
-	}
-	textarea {
-		display: block;
-		width: 100%;
-		margin-bottom: 10px;
-		border: none;
-		height: 75px;
-		border-radius: 0;
-		width: 100%;
-		border: 1px solid $secondary_text_color;
-        background:transparent;
-		border-radius: 5px;
-		padding: 10px;
-        padding-left: 4%;
-        font-size: 16px;
-        padding-top: 3%;
-	}
-	input[type="submit"] {
-		width: 100%;
-		border: 0.5px solid $border;
-        background:transparent;
-		border-radius: 10px;
-	}
-    .submit-btn{
-        border: 0.5px solid $border;
-        background:transparent;
-		border-radius: 15px;
-        padding: 10px 40px;
-        height: 48px;
-        width: 237px;
-        font-family: Poppins;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 24px;
-        letter-spacing: 0em;
-        text-align: center;
-        color: #000000;
-        margin-top: 5%;
-        margin-left: 1%;
-
-
+      }
     }
 
-}
-}
+    .contact-form form input::placeholder {
+      padding-left: 3%;
     }
-}
 
-
-.contact-form form input[name="name"] {
-    height: 45px;
-}
-.contact-form form input[name="email"] {
-    height: 45px;
-}
-.contact-form form input[name="interested_in"] {
-    height: 45px;
-}
-
-
-
-.contact-info {
-    .column {
-      p {
-        i.fas {
-          font-size: 24px;
-          
+    .contact-form {
+      width: 40%;
+      form {
+        label {
+          margin-bottom: 20px;
         }
-        span {
-          font-size: 24px;
+        max-width: 100%;
+
+        margin: 0 auto;
+
+        input {
+          display: block;
+          width: 100%;
+          margin-bottom: 20px;
+          border: 1px solid $secondary_text_color;
+          background: transparent;
+          border-radius: 5px;
+          padding: 10px;
+          font-size: 16px;
+          line-height: 24px;
+          font-family: Poppins;
+        }
+        textarea {
+          display: block;
+          width: 100%;
+          margin-bottom: 10px;
+          border: none;
+          height: 75px;
+          border-radius: 0;
+          width: 100%;
+          border: 1px solid $secondary_text_color;
+          background: transparent;
+          border-radius: 5px;
+          padding: 10px;
+          padding-left: 4%;
+          font-size: 16px;
+          padding-top: 3%;
+        }
+        input[type="submit"] {
+          width: 100%;
+          border: 0.5px solid $border;
+          background: transparent;
+          border-radius: 10px;
+        }
+        .submit-btn {
+          border: 0.5px solid $border;
+          background: transparent;
+          border-radius: 15px;
+          padding: 10px 40px;
+          height: 48px;
+          width: 237px;
+          font-family: Poppins;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+          letter-spacing: 0em;
+          text-align: center;
+          color: #000000;
+          margin-top: 5%;
+          margin-left: 1%;
         }
       }
     }
   }
+}
+
+.contact-form form input[name="name"] {
+  height: 45px;
+}
+.contact-form form input[name="email"] {
+  height: 45px;
+}
+.contact-form form input[name="interested_in"] {
+  height: 45px;
+}
+
+.contact-info {
+  .column {
+    p {
+      i.fas {
+        font-size: 24px;
+      }
+      span {
+        font-size: 24px;
+      }
+    }
+  }
+}
