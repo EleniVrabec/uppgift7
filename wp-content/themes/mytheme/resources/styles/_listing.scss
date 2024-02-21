@@ -6,9 +6,9 @@
     margin-top: 3%;
 
     .custom-products-per-page {
-        order: 1; // Sätt ordning till 2
-        margin-left: auto; // Placera längst ut till höger
-        margin-right: 1%; // Lägg till ett mellanrum på 1%
+        order: 1; 
+        margin-left: auto; 
+        margin-right: 1%; 
         
         
         .custom-products-per-page-input{
@@ -26,7 +26,7 @@
     }
 
     .woocommerce-ordering {
-        order: 2; // Sätt ordning till 1
+        order: 2; 
         margin-right: 5%;
         label {
             padding-right: 5px;
@@ -155,19 +155,19 @@
 
 .custom-wrapper {
     display: flex;
-    justify-content: flex-start; // Centrera ikonerna horisontellt
-    align-items: center; // Centrera ikonerna vertikalt
+    justify-content: flex-start; 
+    align-items: center; 
 
     .filter-icon,
     .gridfilter-icon,
     .listview-icon,
     .line-icon {
-        margin-left: 0; // Ta bort eventuella marginaler till vänster
-        margin-right: 2%; // Lägg till 5% mellanrum mellan ikonerna
+        margin-left: 0; 
+        margin-right: 2%; 
     }
 
     .filter-icon {
-        margin-left: 10%; // Placera första ikonen 10% från vänster sida
+        margin-left: 10%; 
     }
 }
 

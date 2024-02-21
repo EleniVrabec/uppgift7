@@ -78,15 +78,15 @@
 }
 
 #primary-menu.menu li a:hover {
-  transform: scale(1.1); /* Scale the element by 1.1 on hover */
-  /* Additional styles */
+  transform: scale(1.1); 
+
 }
 
 @media screen and (max-width: 2012px) {
   .column-51 {
     display: flex;
     #loginmenu.menu {
-      margin-right: 0; /* Remove the margin */
+      margin-right: 0; 
     }
   }
 }

@@ -83,15 +83,15 @@
 
 
 
-$column-margin: 5%; // Mellanrum mellan kolumnerna
-$side-margin: 10%; // Mellanrum från sidan
-$top-padding: 5px; // Ny variabel för top padding
-$bottom-padding: 85px; // Ny variabel för bottom padding
+$column-margin: 5%; 
+$side-margin: 10%; 
+$top-padding: 5px; 
+$bottom-padding: 85px; 
 
 .footer2 {
     background-color: #FAF4F4;
-    width: calc(100% - (2 * #{$side-margin})); // Använd calc() för att räkna ut den totala bredden med hänsyn till sidomarginalen
-    padding: $top-padding $side-margin $bottom-padding; // Uppdaterad padding
+    width: calc(100% - (2 * #{$side-margin})); 
+    padding: $top-padding $side-margin $bottom-padding; 
     display: flex;
     flex-wrap: nowrap;
 
