@@ -28,10 +28,10 @@ get_template_part('hero-section');
                 $store_email = get_option('store_email');
 
                 if (!empty($store_address)) {
-                    echo '<i class="fas fa-map-marker-alt">   Address</i>    ' . '<br>' . '<label>' . esc_html($store_address) . '</label>' . '<br>';
+                    echo ' <h3><i class="fas fa-map-marker-alt"></i>Address</h3>' . '<label>' . esc_html($store_address) . '</label>'.'<br>';
                 }
                 if (!empty($store_phone)) {
-                    echo '<i class="fas fa-phone">   Phone</i>    ' . '<br>' . '<label>' . esc_html($store_phone) . '</label>' . '<br>';
+                    echo ' <h3><i class="fas fa-phone"></i>Phone</h3>' . '<label>' . esc_html($store_phone) . '</label>'.'<br>';
                 }
                // Definiera öppettiderna
     $mon_to_fri_open = '09:00';
@@ -39,16 +39,16 @@ get_template_part('hero-section');
     $sat_to_sun_open = '09:00';
     $sat_to_sun_close = '21:00';
 
-    // GETS CURRENT DAY
+    // Hämta dagens dag
     $current_day = strtolower(date('l')); // konvertera till gemener
 
-    // FORMATS OPENING HOURS FOR WEEK AND WEEKENDS
+    // Formatera öppettider för vardagar och helger
     $mon_to_fri_hours = 'Monday-Friday: ' . $mon_to_fri_open . '-' . $mon_to_fri_close;
     $sat_to_sun_hours = 'Saturday-Sunday: ' . $sat_to_sun_open . '-' . $sat_to_sun_close;
 
-    // SHOWS THE OPENING HOURS WITH A BLACK ICON
-    echo '<i class="fas fa-clock">   Working Time</i> '. '<br>' . '<label>' . $mon_to_fri_hours . '<br>';
-    echo  $sat_to_sun_hours . '<label>';
+    // Skriv ut öppettiderna med ikon för svart klocka
+    echo '<h3><i class="fas fa-clock"></i>Working Time</h3> ' . '<label>' . $mon_to_fri_hours . '</label>'. '<br>';
+    echo '<label>' . $sat_to_sun_hours . '</label>';
                 ?>
             </p>
 
