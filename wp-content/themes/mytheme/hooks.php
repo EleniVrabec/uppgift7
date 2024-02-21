@@ -40,26 +40,27 @@ add_action( 'woocommerce_after_shop_loop_item', 'remove_add_to_cart_buttons', 1 
       }
     }
 
+// SETTING IMAGE TITLES
 $filter_image_title = "Filter"; 
 $grid_image_title = "Gridfilter"; 
 $list_image_title = "Listview"; 
 $line_image_title = "Line"; 
 
-// Hämta bildernas ID baserat på deras titlar
+// GETTING IMAGE IDs BASED ON THEIR TITLES
 global $wpdb;
 $filter_image_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type = 'attachment'", $filter_image_title ) );
 $grid_image_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type = 'attachment'", $grid_image_title ) );
 $list_image_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type = 'attachment'", $list_image_title ) );
 $line_image_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type = 'attachment'", $line_image_title ) );
 
-// Hook för att öppna anpassad wrapper för produktsidan
+
 add_action( 'woocommerce_before_shop_loop', 'custom_wrapper_open', 19 );
 function custom_wrapper_open() {
     global $filter_image_id, $grid_image_id, $list_image_id, $line_image_id;
 
     echo '<div class="custom-wrapper">';
     
-    // Visa formulär för antal produkter att visa
+    // SHOW PRODUCTS PER PAGE FORM
     ?>
     <form class="custom-products-per-page" action="" method="GET">
         <div class="custom-products-per-page-wrapper">
@@ -69,28 +70,28 @@ function custom_wrapper_open() {
     </form>
     <?php
     
-    // Lägg till ikon för filter från media library
+    // FILTER ICON FROM MEDIA LIBRARY
     echo '<div class="filter-icon">';
     if ( $filter_image_id ) {
         echo wp_get_attachment_image( $filter_image_id, 'full', false, array( 'alt' => 'Filter Image' ) ); 
     }
     echo '</div>';
 
-    // Lägg till ikon för gridfilter från media library
+    // GRIDFILTER ICON FROM MEDIA LIBRARY
     echo '<div class="gridfilter-icon">';
     if ( $grid_image_id ) {
         echo wp_get_attachment_image( $grid_image_id, 'full', false, array( 'alt' => 'Grid Filter Image' ) ); 
     }
     echo '</div>';
 
-    // Lägg till ikon för listvy från media library
+    // LISTVIEW ICON FROM MEDIA LIBRARY
     echo '<div class="listview-icon">';
     if ( $list_image_id ) {
         echo wp_get_attachment_image( $list_image_id, 'full', false, array( 'alt' => 'List View Image' ) ); 
     }
     echo '</div>';
 
-    // Lägg till ikon för line från media library
+    // LINE ICON FROM MEDIA LIBRARY
     echo '<div class="line-icon">';
     if ( $line_image_id ) {
         echo wp_get_attachment_image( $line_image_id, 'full', false, array( 'alt' => 'Line Image' ) ); 
@@ -98,7 +99,7 @@ function custom_wrapper_open() {
     echo '</div>';
 }
 
-// Hook för att stänga anpassad wrapper för produktsidan
+// CLOSES CUSTOM WRAPPER FOR SHOP PAGE
 add_action( 'woocommerce_before_shop_loop', 'custom_wrapper_close', 31 );
 function custom_wrapper_close() {
     echo '</div>'; // Stäng den anpassade wrapper
