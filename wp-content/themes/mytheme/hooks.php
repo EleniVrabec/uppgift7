@@ -177,7 +177,7 @@ function woocommerce_button_proceed_to_checkout() {
         }
         return $needs_shipping;
     }
-
+//breadcrumb delimetar
     function change_breadcrumb_delimiter( $defaults ) {
         // Ändra delimitern till >
         $defaults['delimiter'] = '<span class="breadcrumb-icon"> > </span> ';
